@@ -50,10 +50,9 @@ public class Player : MonoBehaviour {
 
     }
 
-
     void TryUse()
     {
-        print("try use " + heldHat);
+        //print("try use " + heldHat);
         if (heldHat != null)
         {
             DropHat();
@@ -67,7 +66,7 @@ public class Player : MonoBehaviour {
 
     }
 
-    void DropHat()
+    public void DropHat()
     {
         heldHat.RemoveHatFromPlayer();
         heldHat = null;

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Station_HatCannon : MonoBehaviour {
 
-
+    [Header("#### Settings")]
     public List<Hat> HatTypes; 
 
     [Range(0,1)]
@@ -31,7 +31,7 @@ public class Station_HatCannon : MonoBehaviour {
     public Text HatSelectorText;
     public Text HatPipelineText;
 
-    public int HatIncrementor = 0;
+    private int HatIncrementor = 0;
 
     void Start()
     {

@@ -7,15 +7,16 @@ using System;
 public class HatColorStation : MonoBehaviour
 {
     private const float SPRAY_TIME = 5f;
-    private const float COLOR_CHANGE_PER_SEC = 70f;
+    private const float COLOR_CHANGE_PER_SEC = 0.2f;
 
     public Color stationColor;
 
     private Collider collider;
-    private List<Material> materialsOnStation;
+    private List<Renderer> renderersOnStation;
 
     public void Start()
     {
+        renderersOnStation = new List<Renderer>();
         collider = GetComponent<Collider>();
         collider.isTrigger = true;
     }
@@ -34,53 +35,55 @@ public class HatColorStation : MonoBehaviour
             t += Time.deltaTime;
             yield return null;
 
-            foreach(Material material in materialsOnStation)
+            foreach(Renderer renderer in renderersOnStation)
             {
-                float r = stationColor.r - material.color.r;
-                float g = stationColor.g - material.color.g;
-                float b = stationColor.b - material.color.b;
+                float r = stationColor.r - renderer.material.color.r;
+                float g = stationColor.g - renderer.material.color.g;
+                float b = stationColor.b - renderer.material.color.b;
 
                 int rSign = Math.Sign(r);
                 int gSign = Math.Sign(g);
                 int bSign = Math.Sign(b);
 
-                float rChange = rSign * COLOR_CHANGE_PER_SEC * Time.deltaTime;
-                float gChange = gSign * COLOR_CHANGE_PER_SEC * Time.deltaTime;
-                float bChange = bSign * COLOR_CHANGE_PER_SEC * Time.deltaTime;
+                float rChange = -rSign * COLOR_CHANGE_PER_SEC * Time.deltaTime;
+                float gChange = -gSign * COLOR_CHANGE_PER_SEC * Time.deltaTime;
+                float bChange = -bSign * COLOR_CHANGE_PER_SEC * Time.deltaTime;
 
-                if(Math.Sign(material.color.r) != Math.Sign(material.color.r + rChange))
+                if(Math.Sign(renderer.material.color.r) != Math.Sign(renderer.material.color.r + rChange))
                 {
                     rChange = 0f;
                 }
-                if (Math.Sign(material.color.g) != Math.Sign(material.color.g + gChange))
+                if (Math.Sign(renderer.material.color.g) != Math.Sign(renderer.material.color.g + gChange))
                 {
                     gChange = 0f;
                 }
-                if (Math.Sign(material.color.b) != Math.Sign(material.color.b + bChange))
+                if (Math.Sign(renderer.material.color.b) != Math.Sign(renderer.material.color.b + bChange))
                 {
                     bChange = 0f;
                 }
 
-                material.color = new Color(r, g, b, material.color.a);
+                renderer.material.color = new Color(r + rChange, g + gChange, b + bChange, renderer.material.color.a);
             }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Material material = other.GetComponent<Material>();
-        if(material != null)
+        Renderer renderer = other.gameObject.GetComponent<Renderer>();
+        Debug.Log("Adding GameObject " + other.gameObject.name + " with material: " + renderer);
+        if(renderer != null)
         {
-            materialsOnStation.Add(material);
+            renderersOnStation.Add(renderer);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        Material material = other.GetComponent<Material>();
-        if(material != null)
+        Renderer renderer = other.gameObject.GetComponent<Renderer>();
+        Debug.Log("Removing GameObject " + other.gameObject.name + " with material: " + renderer);
+        if(renderer != null)
         {
-            materialsOnStation.Remove(material);
+            renderersOnStation.Remove(renderer);
         }
     }
 }
