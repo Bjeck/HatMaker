@@ -5,9 +5,7 @@ using UnityEngine.UI;
 
 public class Station_HatCannon : MonoBehaviour {
 
-    public enum HatTypeName{
-        Fedora, Bowler, Western, Cap, TopHat
-    }
+
     public List<Hat> HatTypes; 
 
     [Range(0,1)]
