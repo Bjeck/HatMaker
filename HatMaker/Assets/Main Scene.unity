@@ -380,15 +380,24 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 224791366763594370, guid: 3a8d6759cc2c24285aadba350fee00aa,
+    - target: {fileID: 114337523438846720, guid: 3a8d6759cc2c24285aadba350fee00aa,
         type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 7.76
+      propertyPath: PointWhenFinish
+      value: 
+      objectReference: {fileID: 1494016376}
+    - target: {fileID: 114337523438846720, guid: 3a8d6759cc2c24285aadba350fee00aa,
+        type: 2}
+      propertyPath: MaxScale
+      value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 224791366763594370, guid: 3a8d6759cc2c24285aadba350fee00aa,
+    - target: {fileID: 4765083524034476, guid: 3a8d6759cc2c24285aadba350fee00aa, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1.343
+      objectReference: {fileID: 0}
+    - target: {fileID: 114337523438846720, guid: 3a8d6759cc2c24285aadba350fee00aa,
         type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 7
+      propertyPath: DistanceMultiplier
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3a8d6759cc2c24285aadba350fee00aa, type: 2}
@@ -738,11 +747,15 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14.7, y: -1.31, z: -23.6}
   m_LocalScale: {x: 9.058925, y: 2.7872384, z: 9.058925}
-  m_Children:
-  - {fileID: 2143096211}
+  m_Children: [{fileID: 2143096211}]
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1494016376 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1788296519726890, guid: 3a8d6759cc2c24285aadba350fee00aa,
+    type: 2}
+  m_PrefabInternal: {fileID: 677609721}
 --- !u!114 &1118043801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -762,6 +775,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114827813189677410, guid: 4d429841686e947ce8a217990846a23f,
+        type: 2}
+      propertyPath: HatPipeline.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4159103610989122, guid: 4d429841686e947ce8a217990846a23f, type: 2}
       propertyPath: m_LocalPosition.x
       value: 15.4

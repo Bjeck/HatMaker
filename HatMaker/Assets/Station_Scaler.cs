@@ -4,18 +4,104 @@ using UnityEngine;
 
 public class Station_Scaler : MonoBehaviour {
 
+    [Header("#### Settings")]
+    public GameObject ConnectedObject;
+    private float ScaleProportion = 1f;
+    private float OriginalScale = 1f;
+    public float MaxScale = 1f;
+    public float MinScale = 0.1f;
+    public float DistanceMultiplier = 0.2f;
+    private bool hasClicked = false;
+    private Player P;
+    public float Cooldown = 5f;
+    [Range(0f,1f)]
+    private float Cooldowntime = 0;
+
+    [Header("#### Children")]
     public GameObject SnapPoint;
+    public GameObject PointWhenFinish;
 
     private void OnTriggerEnter(Collider col)
     {
-        if(col.gameObject.tag == "Hat")
+        if(col.gameObject.tag == "Hat" && ConnectedObject == null)
         {
-            Rigidbody ObjRB = col.gameObject.GetComponent<Rigidbody>();
+            Hat H = col.GetComponent<Hat>();
+            Rigidbody ObjRB = H.GetComponent<Rigidbody>();
             ObjRB.velocity = Vector3.zero;
             ObjRB.angularVelocity = Vector3.zero;
+            ObjRB.isKinematic = true;
 
-            Transform ObjTra = col.gameObject.GetComponent<Transform>();
+            Transform ObjTra = H.GetComponent<Transform>();
             ObjTra.transform.position = SnapPoint.transform.position;
+            ObjTra.transform.rotation = Quaternion.identity;
+
+            H.RemoveHatFromPlayer();
+            H.enabled = false;
+
+            ConnectedObject = col.gameObject;  
         }
     }
+
+    public void OnInteract(object G)
+    {
+        //print("Interact");
+        P = (G as Player);
+        if(ConnectedObject != null)
+        {
+            hasClicked = true;
+            OriginalScale = ConnectedObject.transform.localScale.x;
+            ConnectedObject.GetComponent<Collider>().enabled = false;
+        }else{
+            print("Scaler: No Hat");
+        }
+    }
+
+    void Update()
+    {
+        if(hasClicked)
+        {
+            ScaleProportion = Vector3.Distance(P.transform.position, this.transform.position)*DistanceMultiplier;
+            float NS = ScaleProportion * OriginalScale;
+
+            if(NS > MaxScale){
+                NS = MaxScale;
+            }
+            if(NS < 0f){
+                NS = MinScale;
+            }
+
+            Vector3 NS2 = new Vector3(NS, NS, NS);
+            ConnectedObject.transform.localScale = NS2;
+
+            if (hInput.GetButtonUp(P.controller + "Use"))
+            {
+                hasClicked = false;
+
+                StartCoroutine(CooldownRoutine());
+            }
+        }
+    }
+
+    IEnumerator CooldownRoutine()
+    {
+        ConnectedObject.transform.position = PointWhenFinish.transform.position;
+        ConnectedObject.GetComponent<Collider>().enabled = true;
+        ConnectedObject.GetComponent<Rigidbody>().isKinematic = false;
+        ScaleProportion = 1f;
+        OriginalScale = 1f;
+
+        ConnectedObject.GetComponent<Hat>().enabled = true;
+        ConnectedObject = null;
+        P = null;
+
+        GetComponent<Collider>().enabled = false;
+        for (float t = 0; t < 1; t += Time.deltaTime / Cooldown)
+        {
+            Cooldowntime = t;
+            yield return null;
+        }
+        GetComponent<Collider>().enabled = true;
+        yield return new WaitForEndOfFrame();
+    }
+
 }
