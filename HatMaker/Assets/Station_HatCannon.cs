@@ -87,7 +87,7 @@ public class Station_HatCannon : MonoBehaviour {
         HatPipeline.Add(newHat);
     }
 
-    public void OnInteract()
+    public void OnInteract(object player)
     {
         // Selection
     }
