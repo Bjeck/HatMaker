@@ -7,7 +7,7 @@ public class Interact : MonoBehaviour {
 
     public UnityEvent TriggerObject;
 
-    public void OnInteract(GameObject G){
+    public void OnInteract(Object G){
         
         TriggerObject.Invoke();
     }

@@ -86,11 +86,4 @@ public class Station_HatCannon : MonoBehaviour {
         Hat newHat = new Hat(HT, G);
         HatPipeline.Add(newHat);
     }
-
-    public void OnInteract()
-    {
-        // Selection
-    }
-
-
 }
