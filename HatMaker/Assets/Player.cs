@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
     Rigidbody rigidbody;
 
     Vector3 velocity;
+    public Hat heldHat;
 
     public float speed = 5f;
 
@@ -52,12 +53,39 @@ public class Player : MonoBehaviour {
 
     void TryUse()
     {
+        print("try use " + heldHat);
+        if (heldHat != null)
+        {
+            DropHat();
+
+            return;
+        }
+        else
+        {
+            PickupHat();
+        }
+
+    }
+
+    void DropHat()
+    {
+        heldHat.RemoveHatFromPlayer();
+        heldHat = null;
+    }
+
+    void PickupHat()
+    {
         RaycastHit[] hits;
-        hits = Physics.SphereCastAll(transform.position, 4, transform.forward,3f);
+        hits = Physics.SphereCastAll(transform.position, 4, transform.forward, 3f);
 
         for (int i = 0; i < hits.Length; i++)
         {
-            hits[i].transform.gameObject.SendMessage("OnInteract",this,SendMessageOptions.DontRequireReceiver);
+            hits[i].transform.gameObject.SendMessage("OnInteract", this, SendMessageOptions.DontRequireReceiver);
+            if (hits[i].collider.CompareTag("Hat"))
+            {
+                //is a hat. bind.
+                heldHat = hits[i].transform.gameObject.GetComponent<Hat>();
+            }
         }
     }
 
