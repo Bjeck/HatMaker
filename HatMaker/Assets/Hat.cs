@@ -2,11 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum HatTypeName
+{
+    Fedora, Bowler, Western, Cap, TopHat
+}
+
+public enum HatAccessory
+{
+    Feather, Sword, Monocle, Plane, Pipe, 
+}
+
+
+public class Hattributes
+{
+    public HatTypeName type;
+    public Vector3 size;
+    public Color color;
+    public HatAccessory[] accessories;
+}
+
 public class Hat : MonoBehaviour {
 
     SpringJoint springjoint;
     Player connectedPlayer;
     Collider col;
+    public Hattributes hattributes;
     
 
     private void Start()
@@ -20,11 +41,6 @@ public class Hat : MonoBehaviour {
         {
             Vector3 closestPoint = col.ClosestPoint(transform.position);
             transform.position = closestPoint;
-
-         //   if (Vector3.Distance(connectedPlayer.transform.position, transform.position) > maxDistance)
-         //   {
-               // transform.position = connectedPlayer.transform.position + Vector3.ClampMagnitude((connectedPlayer.transform.position - transform.position), maxDistance);
-          //  }
         }
 
 
@@ -34,6 +50,14 @@ public class Hat : MonoBehaviour {
         }
     }
     
+    public void RemoveHatFromPlayer()
+    {
+        Destroy(springjoint);
+        springjoint = null;
+        connectedPlayer = null;
+
+    }
+
     void OnSpringBreak()
     {
         connectedPlayer = null;
