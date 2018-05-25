@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class Station_Scaler : MonoBehaviour {
 
-    public GameObject SnapPoint;
-    public GameObject PointWhenFinish;
+    [Header("#### Settings")]
     public GameObject ConnectedObject;
-    public float ScaleProportion = 1f;
-    public float OriginalScale = 1f;
+    private float ScaleProportion = 1f;
+    private float OriginalScale = 1f;
     public float MaxScale = 1f;
     public float MinScale = 0.1f;
     public float DistanceMultiplier = 0.2f;
-    public bool hasClicked = false;
+    private bool hasClicked = false;
     private Player P;
     public float Cooldown = 5f;
     [Range(0f,1f)]
-    public float Cooldowntime = 0;
+    private float Cooldowntime = 0;
+
+    [Header("#### Children")]
+    public GameObject SnapPoint;
+    public GameObject PointWhenFinish;
 
     private void OnTriggerEnter(Collider col)
     {

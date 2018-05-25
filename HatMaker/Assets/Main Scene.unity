@@ -762,6 +762,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114827813189677410, guid: 4d429841686e947ce8a217990846a23f,
+        type: 2}
+      propertyPath: HatPipeline.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4159103610989122, guid: 4d429841686e947ce8a217990846a23f, type: 2}
       propertyPath: m_LocalPosition.x
       value: 15.4
