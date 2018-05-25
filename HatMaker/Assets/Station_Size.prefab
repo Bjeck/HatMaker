@@ -119,7 +119,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1788296519726890}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.101, y: 5.02, z: -0.075}
+  m_LocalPosition: {x: 1.343, y: 5.02, z: -0.075}
   m_LocalScale: {x: 0.9999997, y: 1.000008, z: 0.9999997}
   m_Children: []
   m_Father: {fileID: 4468336376424592}
@@ -239,13 +239,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9552feb0ca8d4cdeaa2ee59f1d2a7af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SnapPoint: {fileID: 1785844033030174}
-  PointWhenFinish: {fileID: 0}
   ConnectedObject: {fileID: 0}
-  ScaleProportion: 1
-  OriginalScale: 1
-  MaxScale: 1
-  hasClicked: 0
+  MaxScale: 10
+  MinScale: 0.1
+  DistanceMultiplier: 0.4
+  Cooldown: 5
+  SnapPoint: {fileID: 1785844033030174}
+  PointWhenFinish: {fileID: 1788296519726890}
 --- !u!114 &114625754191645554
 MonoBehaviour:
   m_ObjectHideFlags: 1
