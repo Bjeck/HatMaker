@@ -53,7 +53,7 @@ public class Player : MonoBehaviour {
     void TryUse()
     {
         RaycastHit[] hits;
-        hits = Physics.SphereCastAll(transform.position, 1, transform.forward,3f);
+        hits = Physics.SphereCastAll(transform.position, 4, transform.forward,3f);
 
         for (int i = 0; i < hits.Length; i++)
         {
