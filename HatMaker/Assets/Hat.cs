@@ -54,6 +54,10 @@ public class Hat : MonoBehaviour {
     
     public void RemoveHatFromPlayer()
     {
+        if(connectedPlayer != null){
+            connectedPlayer.heldHat = null;
+        }
+
         Destroy(springjoint);
         springjoint = null;
         connectedPlayer = null;
@@ -67,11 +71,6 @@ public class Hat : MonoBehaviour {
 
     public void OnInteract(object player)
     {
-        print("i'm a hat and I want to interact with you!");
-
-
-
-
         connectedPlayer = (Player)player;
 
         if(connectedPlayer != null)
