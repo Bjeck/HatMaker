@@ -15,7 +15,7 @@ public class Order
 public class Orders : MonoBehaviour {
 
     public List<Player> players = new List<Player>();
-
+    public UIManager uimanager;
     public List<Order> orders = new List<Order>();
 
     //order with hattributes and player
@@ -58,6 +58,7 @@ public class Orders : MonoBehaviour {
         order.timelimit = Random.Range(30f, 60f);
         order.timer = order.timelimit;
         orders.Add(order);
+        uimanager.CreateUIOrder(order);
     }
 
     public void ExpireOrder(Order order)
@@ -78,7 +79,7 @@ public class Orders : MonoBehaviour {
     {
         Hattributes hattributes = new Hattributes();
 
-        hattributes.size = Vector3.one * Random.Range(0.5f, 3f);
+        hattributes.size = Vector3.one * Random.Range(1.5f, 5f);
 
         hattributes.color = Random.ColorHSV();
 
