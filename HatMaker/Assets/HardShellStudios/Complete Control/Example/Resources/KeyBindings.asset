@@ -12,49 +12,7 @@ MonoBehaviour:
   m_Name: KeyBindings
   m_EditorClassIdentifier: 
   inputs:
-  - Name: Horizontal
-    UniqueName: move_horizontal
-    Type: 0
-    Positive:
-      Primary: 100
-      Secondary: 0
-    Negative:
-      Primary: 97
-      Secondary: 0
-    targetController: 0
-    Axis: 0
-    Invert: 0
-    Sensitivity: 20
-    val: 0
-  - Name: Horizontal
-    UniqueName: 
-    Type: 2
-    Positive:
-      Primary: 100
-      Secondary: 0
-    Negative:
-      Primary: 97
-      Secondary: 0
-    targetController: 0
-    Axis: 0
-    Invert: 0
-    Sensitivity: 1
-    val: 0
-  - Name: Use
-    UniqueName: use
-    Type: 0
-    Positive:
-      Primary: 32
-      Secondary: 0
-    Negative:
-      Primary: 0
-      Secondary: 0
-    targetController: 0
-    Axis: 0
-    Invert: 0
-    Sensitivity: 1
-    val: 0
-  - Name: j1Vertical
+  - Name: Pad1Vertical
     UniqueName: 
     Type: 2
     Positive:
@@ -63,22 +21,162 @@ MonoBehaviour:
     Negative:
       Primary: 0
       Secondary: 0
-    targetController: 0
-    Axis: 0
-    Invert: 0
-    Sensitivity: 1
-    val: 0
-  - Name: j1Horizontal
-    UniqueName: 
-    Type: 2
-    Positive:
-      Primary: 0
-      Secondary: 0
-    Negative:
-      Primary: 0
-      Secondary: 0
-    targetController: 0
+    targetController: 1
     Axis: 1
+    Invert: 0
+    Sensitivity: 1
+    val: 0
+  - Name: Pad2Vertical
+    UniqueName: 
+    Type: 2
+    Positive:
+      Primary: 0
+      Secondary: 0
+    Negative:
+      Primary: 0
+      Secondary: 0
+    targetController: 2
+    Axis: 1
+    Invert: 0
+    Sensitivity: 1
+    val: 0
+  - Name: Pad3Vertical
+    UniqueName: 
+    Type: 2
+    Positive:
+      Primary: 0
+      Secondary: 0
+    Negative:
+      Primary: 0
+      Secondary: 0
+    targetController: 3
+    Axis: 1
+    Invert: 0
+    Sensitivity: 1
+    val: 0
+  - Name: Pad4Vertical
+    UniqueName: 
+    Type: 2
+    Positive:
+      Primary: 0
+      Secondary: 0
+    Negative:
+      Primary: 0
+      Secondary: 0
+    targetController: 4
+    Axis: 1
+    Invert: 0
+    Sensitivity: 1
+    val: 0
+  - Name: Pad1Horizontal
+    UniqueName: 
+    Type: 2
+    Positive:
+      Primary: 0
+      Secondary: 0
+    Negative:
+      Primary: 0
+      Secondary: 0
+    targetController: 1
+    Axis: 0
+    Invert: 0
+    Sensitivity: 1
+    val: 0
+  - Name: Pad2Horizontal
+    UniqueName: 
+    Type: 2
+    Positive:
+      Primary: 0
+      Secondary: 0
+    Negative:
+      Primary: 0
+      Secondary: 0
+    targetController: 2
+    Axis: 0
+    Invert: 0
+    Sensitivity: 1
+    val: 0
+  - Name: Pad3Horizontal
+    UniqueName: 
+    Type: 2
+    Positive:
+      Primary: 0
+      Secondary: 0
+    Negative:
+      Primary: 0
+      Secondary: 0
+    targetController: 3
+    Axis: 0
+    Invert: 0
+    Sensitivity: 1
+    val: 0
+  - Name: Pad4Horizontal
+    UniqueName: 
+    Type: 2
+    Positive:
+      Primary: 0
+      Secondary: 0
+    Negative:
+      Primary: 0
+      Secondary: 0
+    targetController: 4
+    Axis: 0
+    Invert: 0
+    Sensitivity: 1
+    val: 0
+  - Name: Pad1Use
+    UniqueName: 
+    Type: 0
+    Positive:
+      Primary: 351
+      Secondary: 0
+    Negative:
+      Primary: 0
+      Secondary: 0
+    targetController: 0
+    Axis: 0
+    Invert: 0
+    Sensitivity: 1
+    val: 0
+  - Name: Pad2Use
+    UniqueName: 
+    Type: 0
+    Positive:
+      Primary: 371
+      Secondary: 0
+    Negative:
+      Primary: 0
+      Secondary: 0
+    targetController: 0
+    Axis: 0
+    Invert: 0
+    Sensitivity: 1
+    val: 0
+  - Name: Pad3Use
+    UniqueName: 
+    Type: 0
+    Positive:
+      Primary: 391
+      Secondary: 0
+    Negative:
+      Primary: 0
+      Secondary: 0
+    targetController: 0
+    Axis: 0
+    Invert: 0
+    Sensitivity: 1
+    val: 0
+  - Name: Pad4Use
+    UniqueName: 
+    Type: 0
+    Positive:
+      Primary: 411
+      Secondary: 0
+    Negative:
+      Primary: 0
+      Secondary: 0
+    targetController: 0
+    Axis: 0
     Invert: 0
     Sensitivity: 1
     val: 0
