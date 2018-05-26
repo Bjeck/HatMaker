@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43975592, g: 0.48818153, b: 0.5683975, a: 1}
+  m_IndirectSpecularColor: {r: 0.43975636, g: 0.4881822, b: 0.56839854, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -525,6 +525,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1593604801666734, guid: 3a8d6759cc2c24285aadba350fee00aa, type: 2}
+      propertyPath: m_TagString
+      value: Station
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3a8d6759cc2c24285aadba350fee00aa, type: 2}
   m_IsPrefabParent: 0
@@ -651,7 +655,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 54571775391187304, guid: 0d682c5ae19f6d244800ecd095c18c8f, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 0d682c5ae19f6d244800ecd095c18c8f, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &865924228
@@ -1069,6 +1074,14 @@ Prefab:
     - target: {fileID: 4159103610989122, guid: 4d429841686e947ce8a217990846a23f, type: 2}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1124402989612252, guid: 4d429841686e947ce8a217990846a23f, type: 2}
+      propertyPath: m_TagString
+      value: Station
+      objectReference: {fileID: 0}
+    - target: {fileID: 1100866530581854, guid: 4d429841686e947ce8a217990846a23f, type: 2}
+      propertyPath: m_TagString
+      value: Station
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4d429841686e947ce8a217990846a23f, type: 2}
