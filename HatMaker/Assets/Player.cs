@@ -23,6 +23,9 @@ public class Player : MonoBehaviour {
     GameObject objToIntWith;
 
     Quaternion rotation;
+
+    public int Points { get; private set; }
+
 	// Use this for initialization
 	void Start () {
         rigidbody = GetComponent<Rigidbody>();
@@ -98,6 +101,14 @@ public class Player : MonoBehaviour {
         //Debug.DrawRay(transform.position, objToIntWith.transform.position-transform.position);
         
     }
+
+
+
+    public void AddPoints(int pointsToAdd)
+    {
+        Points += pointsToAdd;
+    }
+
 
     void TryUse()
     {
