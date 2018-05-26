@@ -35,7 +35,6 @@ public class UIOrder : MonoBehaviour {
     public void Setup(Order order)
     {
         this.order = order;
-        print("adding " + order.hattributes.type);
         if (hattypeSprite.ContainsKey(order.hattributes.type))
         {
             image.sprite = hattypeSprite[order.hattributes.type];

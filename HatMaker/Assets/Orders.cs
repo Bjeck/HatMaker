@@ -53,7 +53,6 @@ public class Orders : MonoBehaviour {
 
     public void GiveNewOrder(Player player)
     {
-        print("give new order "+player);
         Order order = new Order();
         order.player = player;
         order.hattributes = GenerateRandomHattribute();

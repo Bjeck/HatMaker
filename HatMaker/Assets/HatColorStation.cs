@@ -9,10 +9,17 @@ public class HatColorStation : MonoBehaviour
     private const float SPRAY_TIME = 5f;
     private const float COLOR_CHANGE_PER_SEC = 0.2f;
 
+    public Transform redSlider;
+    public Transform greenSlider;
+    public Transform blueSlider;
+
+
     public Color stationColor;
 
     private Collider collider;
     private List<Renderer> renderersOnStation;
+
+    [SerializeField] Renderer rend;
 
     public void Start()
     {
@@ -26,6 +33,14 @@ public class HatColorStation : MonoBehaviour
         StopCoroutine(Spray());
         StartCoroutine(Spray());
     }
+
+    private void Update()
+    {
+        stationColor = new Color(redSlider.localPosition.x + 0.5f, greenSlider.localPosition.x + 0.5f, blueSlider.localPosition.x + 0.5f);
+        rend.material.color = stationColor;
+        print(redSlider.localPosition);
+    }
+
 
     private IEnumerator Spray()
     {
