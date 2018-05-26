@@ -17,6 +17,8 @@ public class Player : MonoBehaviour {
     public float maxVelocityMagnitude = 30f;
     public List<Order> PlayerOrders;
 
+    GameObject objToIntWith;
+
     Quaternion rotation;
 	// Use this for initialization
 	void Start () {
@@ -60,6 +62,23 @@ public class Player : MonoBehaviour {
             TryUse();
         }
 
+        TestInteraction();
+        DrawLine();
+
+    }
+
+    void DrawLine()
+    {
+        if (objToIntWith == null)
+        {
+            return;
+        }
+
+
+        Debug.DrawRay(transform.position, objToIntWith.transform.position);
+
+
+
     }
 
     void TryUse()
@@ -73,7 +92,7 @@ public class Player : MonoBehaviour {
         }
         else
         {
-            PickupHat();
+            Interact();
         }
 
     }
@@ -84,7 +103,44 @@ public class Player : MonoBehaviour {
         heldHat = null;
     }
 
-    void PickupHat()
+
+
+    void TestInteraction()
+    {
+        RaycastHit[] hits;
+        hits = Physics.SphereCastAll(transform.position, 4, transform.forward, 3f);
+
+        List<GameObject> objects = new List<GameObject>();
+
+
+
+
+        for (int i = 0; i < hits.Length; i++)
+        {
+            objects.Add(hits[i].transform.gameObject);
+        }
+
+
+        for (int i = 0; i < objects.Count; i++)
+        {
+            if (hits[i].collider.CompareTag("Player"))
+            {
+                objToIntWith = hits[i].collider.gameObject;
+            }
+            else if (hits[i].collider.CompareTag("Hat"))
+            {
+                objToIntWith = hits[i].collider.gameObject;
+            }
+            else if (hits[i].collider.CompareTag("Station"))
+            {
+                objToIntWith = hits[i].collider.gameObject;
+            }
+        }
+
+    }
+
+
+    void Interact()
     {
         RaycastHit[] hits;
         hits = Physics.SphereCastAll(transform.position, 4, transform.forward, 3f);
