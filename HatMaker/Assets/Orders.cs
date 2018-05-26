@@ -70,7 +70,7 @@ public class Orders : MonoBehaviour {
         order.player = player;
         order.hattributes = GenerateRandomHattribute();
         order.OrderCustomer = CustomerObj;
-        order.timelimit = Random.Range(20f, 25f);
+        order.timelimit = Random.Range(30f, 40f);
         order.timer = order.timelimit;
         orders.Add(order);
         uimanager.CreateUIOrder(order);

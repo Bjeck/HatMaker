@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.AI;
 
 [System.Serializable]
 public class CustomerPositionClass
@@ -35,8 +36,10 @@ public class CustomerLine : MonoBehaviour {
     GameManager gamemanager;
 
     [Header("Customer Positions")]
+    public bool Overrun = false;
     public List<CustomerPositionClass> HandlePosition;
     public List<CustomerPositionClass> WaitingPosition;
+    public GameObject WaitPosGameObj;
 
     public List<HandoverPlace> handoverplaces = new List<HandoverPlace>();
 
@@ -68,9 +71,39 @@ public class CustomerLine : MonoBehaviour {
 
             return AssignedPlace;
         }else{
-            print("Could not find place");
+            EndCondition();
             return null;
         }
+    }
+
+    void EndCondition()
+    {
+        Overrun = true;
+        GetComponent<Collider>().enabled = false;
+        GetComponent<MeshRenderer>().enabled = false;
+        GetComponent<NavMeshObstacle>().enabled = false;
+
+        ParticlesDestroyBarrier.Play();
+
+        for (int i = 0; i < HandlePosition.Count(); i++)
+        {
+            GameManager GM = GameObject.Find("Managers").GetComponent<GameManager>();
+            int PlayerNum = i % GameManager.playerCount;
+
+            HandlePosition[i].OccupiedBy.GetComponent<Customer>().GetHim( GM.playersAtStart[PlayerNum].gameObject);
+
+        }
+
+        for (int i = 0; i < WaitingPosition.Count(); i++)
+        {
+            GameManager GM = GameObject.Find("Managers").GetComponent<GameManager>();
+            int PlayerNum = i % GameManager.playerCount;
+
+            WaitingPosition[i].OccupiedBy.GetComponent<Customer>().GetHim(GM.playersAtStart[PlayerNum].gameObject);
+
+        }
+
+        StopCoroutine(CustomerSpawner());
     }
 
     [Header("Customer Spawning")]
@@ -79,6 +112,8 @@ public class CustomerLine : MonoBehaviour {
     public float SpawningRate = 30f;
     public float SpawningVariability = 10f;
     public float Timer = 0f;
+
+    public ParticleSystem ParticlesDestroyBarrier;
 
     void Awake()
     {
@@ -95,6 +130,14 @@ public class CustomerLine : MonoBehaviour {
                 WaitingPosition.Insert(0,nCPC);
             }
         }
+
+        List<Transform> WP = WaitPosGameObj.GetComponentsInChildren<Transform>().ToList();
+        WP.Remove(WaitPosGameObj.transform);
+        for (int i = 0; i < WP.Count(); i++)
+        {
+            CustomerPositionClass CPC = new CustomerPositionClass(WP[i].gameObject, null, false);
+            WaitingPosition.Add(CPC);
+        }
     }
 
     void Start(){
@@ -105,7 +148,7 @@ public class CustomerLine : MonoBehaviour {
     public IEnumerator CustomerSpawner()
     {
         SpawnCustomers(GameManager.playerCount);
-        while(true)
+        while(!Overrun)
         {
             float waitTime = SpawningRate + Random.Range(0,SpawningVariability);
             for (float t = 0; t < 1; t += Time.deltaTime / waitTime)
@@ -121,7 +164,7 @@ public class CustomerLine : MonoBehaviour {
 
     public void SpawnCustomers(int num)
     {
-        for (int i = 0; i < num; i++){
+        for (int i = 0; i < num ; i++){
             GameObject newCustomer = (Instantiate(CustomerPrefab, StartingPosition.transform.position, Quaternion.identity)) as GameObject;
             newCustomer.GetComponent<Customer>().CL = this;
         }

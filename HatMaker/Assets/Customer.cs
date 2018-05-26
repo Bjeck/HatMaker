@@ -12,6 +12,7 @@ public class Customer : MonoBehaviour {
     public bool isMoving = false;
     public IEnumerator WaitingMovement;
     public Quaternion TargetRotation;
+    public bool onTheHunt = false;
 
     public void Start()
     {
@@ -47,6 +48,12 @@ public class Customer : MonoBehaviour {
         TargetTransform = CL.StartingPosition.transform;
         NMA.SetDestination(TargetTransform.position);
         CL.UpdateAllCustomerpositions();
+    }
+
+    public void GetHim(GameObject G){
+        CPC.OccupiedBy = null;
+        TargetTransform = G.transform;
+        onTheHunt = true;
     }
 
     public void SetPositionTo(CustomerPositionClass nCPC)
@@ -90,18 +97,29 @@ public class Customer : MonoBehaviour {
             }
             transform.rotation = Quaternion.Lerp(transform.rotation, TargetRotation, Time.deltaTime*10);
         }
+
+        if(onTheHunt){
+            NMA.SetDestination(TargetTransform.position);
+        }
     }
 
     IEnumerator WaitingRoutine()
     {
         while(true)
         {
-
             TargetRotation = Quaternion.Euler(0, Random.Range(0, 360) , 0);
 
             yield return new WaitForSeconds(Random.Range(5f,10f));
         }
 
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<Player>().AddPoints(-20);
+        }
     }
 
 }
