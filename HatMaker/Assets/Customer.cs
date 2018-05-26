@@ -118,7 +118,7 @@ public class Customer : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Player")
         {
-            //collision.gameObject.GetComponent<Player>().
+            collision.gameObject.GetComponent<Player>().AddPoints(-20);
         }
     }
 

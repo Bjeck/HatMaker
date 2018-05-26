@@ -37,6 +37,7 @@ public class CustomerLine : MonoBehaviour {
     public bool Overrun = false;
     public List<CustomerPositionClass> HandlePosition;
     public List<CustomerPositionClass> WaitingPosition;
+    public GameObject WaitPosGameObj;
 
     public CustomerPositionClass AskForPosition(GameObject customer){
 
@@ -123,6 +124,14 @@ public class CustomerLine : MonoBehaviour {
                 HandlePosition.RemoveAt(i);
                 WaitingPosition.Insert(0,nCPC);
             }
+        }
+
+        List<Transform> WP = WaitPosGameObj.GetComponentsInChildren<Transform>().ToList();
+        WP.Remove(WaitPosGameObj.transform);
+        for (int i = 0; i < WP.Count(); i++)
+        {
+            CustomerPositionClass CPC = new CustomerPositionClass(WP[i].gameObject, null, false);
+            WaitingPosition.Add(CPC);
         }
     }
 
