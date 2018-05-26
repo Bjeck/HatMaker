@@ -62,7 +62,8 @@ public class Player : MonoBehaviour
             rigidbody.AddForce(velocity, ForceMode.VelocityChange);
         }
 
-        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z); //magic numbers ftw!!
+        float clampedY = Mathf.Clamp(transform.position.y, 2f, 8f);
+        transform.position = new Vector3(transform.position.x, clampedY, transform.position.z); //magic numbers ftw!!
 
         if (hInput.GetButtonDown(controller + "Use"))
         {
