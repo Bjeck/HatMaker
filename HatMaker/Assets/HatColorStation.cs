@@ -38,7 +38,6 @@ public class HatColorStation : MonoBehaviour
     {
         stationColor = new Color(redSlider.localPosition.x + 0.5f, greenSlider.localPosition.x + 0.5f, blueSlider.localPosition.x + 0.5f);
         rend.material.color = stationColor;
-        print(redSlider.localPosition);
     }
 
 
