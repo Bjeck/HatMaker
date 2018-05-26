@@ -899,6 +899,34 @@ Prefab:
       propertyPath: ParticlesDestroyBarrier
       value: 
       objectReference: {fileID: 825292255}
+    - target: {fileID: 4107091487308136, guid: 48e621ffb999548a4af92e34ee39ba29, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.054
+      objectReference: {fileID: 0}
+    - target: {fileID: 4137058200285990, guid: 48e621ffb999548a4af92e34ee39ba29, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.07760358
+      objectReference: {fileID: 0}
+    - target: {fileID: 4045170547960460, guid: 48e621ffb999548a4af92e34ee39ba29, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.1772
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988054064860650, guid: 48e621ffb999548a4af92e34ee39ba29, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -6.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195709163081490, guid: 48e621ffb999548a4af92e34ee39ba29, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -7.9699993
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988054064860650, guid: 48e621ffb999548a4af92e34ee39ba29, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195709163081490, guid: 48e621ffb999548a4af92e34ee39ba29, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.14000049
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 48e621ffb999548a4af92e34ee39ba29, type: 2}
   m_IsPrefabParent: 0
@@ -1175,9 +1203,24 @@ Prefab:
       propertyPath: playerCount
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114069423542804538, guid: 075cfc4b94e29b84ba1704dfb996fee9,
+        type: 2}
+      propertyPath: customerLine
+      value: 
+      objectReference: {fileID: 1686849416}
+    - target: {fileID: 1988030938863124, guid: 075cfc4b94e29b84ba1704dfb996fee9, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 075cfc4b94e29b84ba1704dfb996fee9, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1686849416 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114050804892156950, guid: 48e621ffb999548a4af92e34ee39ba29,
+    type: 2}
+  m_PrefabInternal: {fileID: 901879744}
+  m_Script: {fileID: 11500000, guid: 009d6f844b44b4cdd93c3554d5401281, type: 3}
 --- !u!1 &1697663296
 GameObject:
   m_ObjectHideFlags: 0

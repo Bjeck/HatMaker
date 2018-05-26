@@ -23,7 +23,6 @@ public class CustomerPositionClass
         Orders O = GameObject.Find("Managers").GetComponent<GameManager>().orders;
         Player P = O.CheckForPlayerWithoutOrder();
         if(P != null){
-            Debug.Log("Found player without order");
             O.GiveNewOrder(P, OccupiedBy.GetComponent<Customer>());
         }else{
             Debug.Log("No player without order");
@@ -196,5 +195,17 @@ public class CustomerLine : MonoBehaviour {
 
     }
 
+    public Customer GetCustomerByOrder(Order order)
+    {
+        foreach(CustomerPositionClass g in HandlePosition)
+        {
+            Customer c = g.OccupiedBy.GetComponent<Customer>();
+            if (c == order.OrderCustomer)
+            {
+                return c;
+            }
+        }
+        return null;
+    }
 
 }
