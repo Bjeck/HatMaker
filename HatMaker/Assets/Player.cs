@@ -94,13 +94,14 @@ public class Player : MonoBehaviour {
             line.position = transform.position;
         }
 
+        // position
+        float dist = Vector3.Distance(objToIntWith.transform.position, transform.position) / 2;
+        Vector3 middleWay = (objToIntWith.transform.position - transform.position).normalized * dist;
+        line.transform.position = transform.position + middleWay;
+        // rotate
         line.LookAt(objToIntWith.transform.position);
-        float dist = Vector3.Distance(transform.position, objToIntWith.transform.position) / 2f;
-        line.localScale = new Vector3(0.2f, 0.2f, dist );
-        line.position = transform.position;
-        line.position += line.forward * dist;
+        line.localScale = new Vector3(0.2f,0.2f, dist);
 
-        
         //Debug.DrawRay(transform.position, objToIntWith.transform.position-transform.position);
         
     }
@@ -143,12 +144,10 @@ public class Player : MonoBehaviour {
 
         List<GameObject> objects = new List<GameObject>();
 
-
         objToIntWith = null;
         
         for (int i = 0; i < hits.Length; i++)
         {
-            
             if(hits[i].transform.gameObject != gameObject || !hits[i].transform.IsChildOf(transform))
             {
                 objects.Add(hits[i].transform.gameObject);
