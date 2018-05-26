@@ -77,6 +77,15 @@ public class Orders : MonoBehaviour {
         player.PlayerOrders.Add(order);
     }
 
+
+    public void ExpireOrder(Customer customer)
+    {
+        if(orders.Exists(x=>x.OrderCustomer == customer))
+        {
+            ExpireOrder(orders.Find(x => x.OrderCustomer == customer));
+        }
+    }
+
     public void ExpireOrder(Order order)
     {
         //print("expire");
@@ -108,7 +117,7 @@ public class Orders : MonoBehaviour {
     }
     
 
-    public bool EvaluateOrder(Player player, Hat hat)
+    public void EvaluateOrder(Player player, Hat hat)
     {
         Order thisOrder = orders.Find(x => x.player == player);
 
@@ -121,14 +130,19 @@ public class Orders : MonoBehaviour {
         totalScore -= SizeEvaluation(thisOrder, hat);
         totalScore -= ColorEvaluation(thisOrder, hat);
 
-        if(totalScore > 0)
+        if(totalScore < 0)
         {
-            return true;
+            totalScore = 0;
         }
-        else
-        {
-            return false;
-        }
+
+        print("Evaluated hat " + hat + " with points " + totalScore+ "   " + IsTypeCorrect(thisOrder, hat) + "  "  + SizeEvaluation(thisOrder, hat) + "  " + ColorEvaluation(thisOrder, hat));
+
+        player.AddPoints(totalScore);
+
+        player.DropHat();
+
+        //Destroy(hat.gameObject);
+        
     }
 
     bool IsTypeCorrect(Order order, Hat hat)

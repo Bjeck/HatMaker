@@ -31,10 +31,14 @@ public class CustomerPositionClass
 }
 
 public class CustomerLine : MonoBehaviour {
-    
+
+    GameManager gamemanager;
+
     [Header("Customer Positions")]
     public List<CustomerPositionClass> HandlePosition;
     public List<CustomerPositionClass> WaitingPosition;
+
+    public List<HandoverPlace> handoverplaces = new List<HandoverPlace>();
 
     public CustomerPositionClass AskForPosition(GameObject customer){
 
@@ -87,12 +91,14 @@ public class CustomerLine : MonoBehaviour {
                 
                 CustomerPositionClass nCPC = HandlePosition[i];
                 HandlePosition.RemoveAt(i);
+                handoverplaces.RemoveAt(i);
                 WaitingPosition.Insert(0,nCPC);
             }
         }
     }
 
     void Start(){
+        gamemanager = GameObject.Find("Managers").GetComponent<GameManager>();
         StartCoroutine(CustomerSpawner());
     }
 
@@ -131,4 +137,21 @@ public class CustomerLine : MonoBehaviour {
             }
         }
     }
+
+    public void HandoverHatToCustomer(HandoverPlace place, Hat hat)
+    {
+        if(HandlePosition[handoverplaces.IndexOf(place)].OccupiedBy == null)
+        {
+            return; //no one there.
+        }
+        Transform customer = HandlePosition[handoverplaces.IndexOf(place)].OccupiedBy.transform;
+        hat.transform.SetParent(customer);
+        hat.transform.rotation = Quaternion.identity;
+        hat.transform.position = customer.transform.position + Vector3.up;
+
+        gamemanager.orders.ExpireOrder(customer.gameObject.GetComponent<Customer>());
+
+    }
+
+
 }

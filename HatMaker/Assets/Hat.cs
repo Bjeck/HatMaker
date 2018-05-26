@@ -27,7 +27,7 @@ public class Hattributes
 public class Hat : MonoBehaviour {
 
     SpringJoint springjoint;
-    Player connectedPlayer;
+    public Player connectedPlayer;
     Collider col;
     public Hattributes hattributes;
     
@@ -68,7 +68,6 @@ public class Hat : MonoBehaviour {
     {
         if (connectedPlayer != null)
         {
-            print("remove held hat");
             connectedPlayer.heldHat = null;
         }
         connectedPlayer = null;
