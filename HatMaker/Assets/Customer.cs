@@ -6,23 +6,55 @@ using UnityEngine.AI;
 public class Customer : MonoBehaviour {
 
     private NavMeshAgent NMA;
-    private CustomerLine CL;
+    public CustomerLine CL;
     public Transform TargetTransform;
+    public CustomerPositionClass CPC;
+    public bool isMoving = false;
 
     public void Start()
     {
         NMA = GetComponent<NavMeshAgent>();
-        CL = GameObject.Find("CustomerLine").GetComponent<CustomerLine>();
-        CustomerLine.CustomerPositionClass CPC = CL.AskForPosition(gameObject);
-        if(CPC != null){
+        CPC = CL.AskForPosition(gameObject);
+        if(CPC != null)
+        {
             TargetTransform = CPC.Position.transform;
             NMA.SetDestination(TargetTransform.position);
         }
-
     }
 
-    //public void Update(){
+    public void OnStartMoving()
+    {
+        CPC.hasSeated = false;
+    }
 
-       
-    //}
+    public void OnStopMoving()
+    {
+        CPC.hasSeated = true;
+        CPC.HasReached();
+    }
+
+    public void GetTheFuckOut(){
+        TargetTransform = CL.StartingPosition.transform;
+        NMA.SetDestination(TargetTransform.position);
+    }
+
+    void Update()
+    {
+        if(NMA.hasPath && !isMoving){
+            print("Start to Move");
+            OnStartMoving();
+            isMoving = true;
+        }
+        else
+        {
+            if (!NMA.hasPath && isMoving)
+            {
+                print("Stopping");
+                OnStopMoving();
+                isMoving = false;
+            }
+
+        }
+    }
+
 }
