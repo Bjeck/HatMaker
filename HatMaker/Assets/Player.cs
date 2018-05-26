@@ -140,12 +140,10 @@ public class Player : MonoBehaviour {
 
         List<GameObject> objects = new List<GameObject>();
 
-
         objToIntWith = null;
         
         for (int i = 0; i < hits.Length; i++)
         {
-            
             if(hits[i].transform.gameObject != gameObject || !hits[i].transform.IsChildOf(transform))
             {
                 objects.Add(hits[i].transform.gameObject);

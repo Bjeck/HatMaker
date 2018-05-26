@@ -17,7 +17,7 @@ public class HatColorStationController : MonoBehaviour
 
     public void OnInteract(object payload)
     {
-        print("fun");
+        //print("fun");
         colorStation.OnInteract();
     }
 }

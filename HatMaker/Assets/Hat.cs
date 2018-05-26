@@ -20,51 +20,49 @@ public class Hattributes
     public Vector3 size;
     public Color color;
     public HatAccessory[] accessories;
-
-
 }
 
 public class Hat : MonoBehaviour {
 
-    SpringJoint springjoint;
     public Player connectedPlayer;
-    Collider col;
+    SphereCollider col;
     public Hattributes hattributes;
-    
+    public Rigidbody RB;
 
-    private void Start()
-    {
-        springjoint = GetComponent<SpringJoint>();
+    void Start(){
+        RB = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
         if(connectedPlayer != null)
         {
-            Vector3 closestPoint = col.ClosestPoint(transform.position);
-            transform.position = closestPoint;
-        }
+            float dist = Vector3.Distance(connectedPlayer.transform.position, transform.position);
+            if(dist > 5f)
+            {
+                transform.position = Vector3.Lerp(transform.position, connectedPlayer.transform.position, Time.deltaTime * 2);
 
+                if (dist > col.radius)
+                {
+                    transform.position = col.ClosestPoint(transform.position);
+                }
+            }
 
-        if(springjoint == null && connectedPlayer != null)
-        {
-            OnSpringBreak();
         }
     }
     
     public void RemoveHatFromPlayer()
     {
+        RB.velocity = Vector3.zero;
+        RB.angularVelocity = Vector3.zero;
+
         if(connectedPlayer != null){
             connectedPlayer.heldHat = null;
         }
-
-        Destroy(springjoint);
-        springjoint = null;
         connectedPlayer = null;
-
     }
 
-    void OnSpringBreak()
+    public void RemoveHatFromPlayer_Kicked()
     {
         if (connectedPlayer != null)
         {
@@ -75,26 +73,15 @@ public class Hat : MonoBehaviour {
 
     public void OnInteract(object player)
     {
-        connectedPlayer = (Player)player;
+        if(connectedPlayer == null){
+            connectedPlayer = (Player)player;
 
-        if(connectedPlayer != null)
-        {
-            if(springjoint == null)
+            if (connectedPlayer != null)
             {
-                SpringJoint joint = gameObject.AddComponent<SpringJoint>();
-
-                joint.damper = 40;
-                joint.spring = 100;
-                joint.breakForce = 1800f;
-                springjoint = joint;
+                col = connectedPlayer.GetComponent<SphereCollider>();
             }
-
-            springjoint.connectedBody = connectedPlayer.GetComponent<Rigidbody>();
-            springjoint.connectedAnchor = connectedPlayer.transform.position + connectedPlayer.transform.forward;
-            col = connectedPlayer.GetComponent<SphereCollider>();
-
+        }else{
+            RemoveHatFromPlayer_Kicked();
         }
-
-
     }
 }

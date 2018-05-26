@@ -11,7 +11,7 @@ public class Interact : MonoBehaviour {
     public void OnInteract(Object G){
 
         PlayerObject = (G as Player);
-        print("Assigning");
+        //print("Assigning");
         TriggerObject.Invoke();
     }
 
