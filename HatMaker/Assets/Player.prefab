@@ -149,6 +149,10 @@ MonoBehaviour:
     Back: {fileID: 21300000, guid: bdb4f713b9075470da7a933f85a47117, type: 3}
     Right: {fileID: 21300000, guid: 5f4e52ec499514bd5b3e7f03a734c709, type: 3}
     Left: {fileID: 21300000, guid: e95d65f120ae84fd78b8a3c634e0f86f, type: 3}
+    Walk_Left_01: {fileID: 21300000, guid: 0a86ab7ee030a43008dc5d288f839a87, type: 3}
+    Walk_Left_02: {fileID: 21300000, guid: 3eb7b5b05a97141c68d31bc61fd42dc0, type: 3}
+    Walk_Right_01: {fileID: 21300000, guid: 2ab88a838cdad41a39a49059046e57b5, type: 3}
+    Walk_Right_02: {fileID: 21300000, guid: 8e856733ff2a34d79989f8ca61f4802d, type: 3}
   controller: Pad1
   color: {r: 0, g: 0, b: 0, a: 0}
   heldHat: {fileID: 0}

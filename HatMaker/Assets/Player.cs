@@ -16,6 +16,12 @@ public class Player : MonoBehaviour
         public Sprite Back;
         public Sprite Right;
         public Sprite Left;
+
+        [Header("Sprites")]
+        public Sprite Walk_Left_01; 
+        public Sprite Walk_Left_02; 
+        public Sprite Walk_Right_01; 
+        public Sprite Walk_Right_02; 
     }
 
     public Billboards PlayerSprites;
@@ -42,6 +48,7 @@ public class Player : MonoBehaviour
 	// Use this for initialization
 	void Start () {
         rigidbody = GetComponent<Rigidbody>();
+        StartCoroutine(Walking());
 	}
 
     public void Setup(Color col)
@@ -52,6 +59,7 @@ public class Player : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
+
 
         velocity = new Vector3(hInput.GetAxis(controller + "Horizontal"), 0 , -hInput.GetAxis(controller + "Vertical"));
         velocity *= speed;
@@ -73,53 +81,155 @@ public class Player : MonoBehaviour
         TestInteraction();
         DrawLine();
 
-        float x = rigidbody.velocity.x;
-        float z = rigidbody.velocity.z;
+        float x = velocity.x;
+        float z = velocity.z;
+        print(velocity);
 
-        if (x > 0f && z > 0)
+        if (x > 0f && z >= 0)
         {
             // TOP RIGHT
             if(x > z){
-                PlayerSprites.SpriteComponent.sprite = PlayerSprites.Right;
-            }else{
-                PlayerSprites.SpriteComponent.sprite = PlayerSprites.Back;
-            }
-        }else if(x > 0f && z < 0)
-        {
-            // BOTTOM RIGHT
-            if (x > Mathf.Abs(z))
-            {
-                PlayerSprites.SpriteComponent.sprite = PlayerSprites.Right;
+                isSideWalking = true;
+                isWalkingLeft = false;
             }
             else
             {
-                PlayerSprites.SpriteComponent.sprite = PlayerSprites.Front;
+                isSideWalking = false;
+                isWalkingUp = true;
+
+            }
+        }else if(x >= 0f && z < 0)
+        {
+            
+            // BOTTOM RIGHT
+            if (x > Mathf.Abs(z))
+            {
+                isSideWalking = true;
+                isWalkingLeft = false;
+            }
+            else
+            {
+                isSideWalking = false;
+                isWalkingUp = false;
+               
             }
         }
-        else if (x < 0f && z < 0)
+        else if (x < 0f && z <= 0)
         {
             // BOTTOM LEFT
             if (Mathf.Abs(x) > Mathf.Abs(z))
             {
-                PlayerSprites.SpriteComponent.sprite = PlayerSprites.Left;
+                isSideWalking = true;
+                isWalkingLeft = true;
             }
             else
             {
-                PlayerSprites.SpriteComponent.sprite = PlayerSprites.Front;
+                isSideWalking = false;
+                isWalkingUp = false;
             }
         }else{
             // TOP LEFT
             if (x > Mathf.Abs(z))
             {
-                PlayerSprites.SpriteComponent.sprite = PlayerSprites.Left;
+                isSideWalking = true;
+                isWalkingLeft = true;
             }
             else
             {
-                PlayerSprites.SpriteComponent.sprite = PlayerSprites.Back;
+                isSideWalking = false;
+                isWalkingUp = true;
+               
             }
         }
+    }
 
-        //PlayerSprites.SpriteComponent.sprite = PlayerSprites.Left;
+    bool isSideWalking = false;
+    bool isWalkingLeft = false;
+    bool isWalkingUp = false;
+    IEnumerator WalkingLeft; 
+    IEnumerator WalkingRight;
+    float Speed = 0.1f;
+
+    IEnumerator WalkingLeftRoutine(){
+        while(true){
+            PlayerSprites.SpriteComponent.sprite = PlayerSprites.Left;
+            yield return new WaitForSeconds(Speed);
+            PlayerSprites.SpriteComponent.sprite = PlayerSprites.Walk_Left_01;
+            yield return new WaitForSeconds(Speed);
+            PlayerSprites.SpriteComponent.sprite = PlayerSprites.Left;
+            yield return new WaitForSeconds(Speed);
+            PlayerSprites.SpriteComponent.sprite = PlayerSprites.Walk_Left_02;
+            yield return new WaitForSeconds(Speed);
+        }
+    }
+
+    IEnumerator WalkingRightRoutine(){
+        while(true){
+            PlayerSprites.SpriteComponent.sprite = PlayerSprites.Right;
+            yield return new WaitForSeconds(Speed);
+            PlayerSprites.SpriteComponent.sprite = PlayerSprites.Walk_Right_01;
+            yield return new WaitForSeconds(Speed);
+            PlayerSprites.SpriteComponent.sprite = PlayerSprites.Right;
+            yield return new WaitForSeconds(Speed);
+            PlayerSprites.SpriteComponent.sprite = PlayerSprites.Walk_Right_02;
+            yield return new WaitForSeconds(Speed);
+        }
+    }
+
+    IEnumerator Walking ()
+    {
+
+
+        while(true)
+        {
+            if(isSideWalking)
+            {
+                if(isWalkingLeft)
+                {
+                    if(WalkingLeft == null){
+                        WalkingLeft = WalkingLeftRoutine();
+                        StartCoroutine(WalkingLeft);
+                    }
+                    if(WalkingRight != null){
+                        StopCoroutine(WalkingRight);
+                        WalkingRight = null;
+                    }
+                }
+                else
+                {
+                    if (WalkingRight == null)
+                    {
+                        WalkingRight = WalkingRightRoutine();
+                        StartCoroutine(WalkingRight);
+                    }
+                    if (WalkingLeft != null)
+                    {
+                        StopCoroutine(WalkingLeft);
+                        WalkingLeft = null;
+                    }
+                }
+                yield return new WaitForEndOfFrame();
+            }else{
+                if (WalkingLeft != null)
+                {
+                    StopCoroutine(WalkingLeft);
+                    WalkingLeft = null;
+                }
+                if (WalkingRight != null)
+                {
+                    StopCoroutine(WalkingRight);
+                    WalkingRight = null;
+                }
+
+                if(isWalkingUp){
+                    PlayerSprites.SpriteComponent.sprite = PlayerSprites.Back;
+                }else{
+                    PlayerSprites.SpriteComponent.sprite = PlayerSprites.Front;
+                }
+
+            }
+            yield return new WaitForEndOfFrame();
+        }  
     }
 
     void DrawLine()
