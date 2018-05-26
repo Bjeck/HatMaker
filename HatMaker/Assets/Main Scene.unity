@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43975636, g: 0.4881822, b: 0.56839854, a: 1}
+  m_IndirectSpecularColor: {r: 0.43975592, g: 0.48818153, b: 0.5683975, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -152,35 +152,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 14
       objectReference: {fileID: 0}
-    - target: {fileID: 145953092999717416, guid: 3a8d6759cc2c24285aadba350fee00aa,
-        type: 2}
-      propertyPath: m_Damper
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 145953092999717416, guid: 3a8d6759cc2c24285aadba350fee00aa,
-        type: 2}
-      propertyPath: m_Spring
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 65113287866205272, guid: 3a8d6759cc2c24285aadba350fee00aa,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114337523438846720, guid: 3a8d6759cc2c24285aadba350fee00aa,
-        type: 2}
-      propertyPath: MaxScale
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114337523438846720, guid: 3a8d6759cc2c24285aadba350fee00aa,
-        type: 2}
-      propertyPath: MinScale
-      value: 0.5
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 145953092999717416, guid: 3a8d6759cc2c24285aadba350fee00aa, type: 2}
-    - {fileID: 54439437022603118, guid: 3a8d6759cc2c24285aadba350fee00aa, type: 2}
-    - {fileID: 54562598920411640, guid: 3a8d6759cc2c24285aadba350fee00aa, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3a8d6759cc2c24285aadba350fee00aa, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &145225919

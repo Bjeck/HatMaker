@@ -90,7 +90,7 @@ public class HatColorStation : MonoBehaviour
         Renderer renderer = other.gameObject.GetComponent<Renderer>();
         if(renderer != null)
         {
-            print("adding " + other.gameObject.name);
+            //print("adding " + other.gameObject.name);
             renderersOnStation.Add(renderer);
         }
     }
@@ -100,7 +100,7 @@ public class HatColorStation : MonoBehaviour
         Renderer renderer = other.gameObject.GetComponent<Renderer>();
         if(renderer != null)
         {
-            print("removing " + other.gameObject.name);
+            //print("removing " + other.gameObject.name);
             renderersOnStation.Remove(renderer);
         }
     }
