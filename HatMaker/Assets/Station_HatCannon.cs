@@ -55,7 +55,7 @@ public class Station_HatCannon : MonoBehaviour {
                 }
 
                 GameObject newG = (Instantiate(HatPipeline[0].Prefab, InstantiatePosition.transform.position, Quaternion.identity)) as GameObject;
-
+                newG.transform.Rotate(90, 0, 0);
                 newG.GetComponent<Rigidbody>().AddForce(InstantiatePosition.transform.up*6, ForceMode.Impulse);
                 HatPipeline.RemoveAt(0);
 

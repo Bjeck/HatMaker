@@ -24,9 +24,12 @@ public class HandoverPlace : MonoBehaviour {
         {
             Hat h = other.gameObject.GetComponent<Hat>();
             //evaluate and go on
-            gamemanager.orders.EvaluateOrder(h.connectedPlayer, h);
+            if(h.connectedPlayer != null)
+            {
+                gamemanager.orders.EvaluateOrder(h.connectedPlayer, h);
 
-            customerLine.HandoverHatToCustomer(this, h);
+                customerLine.HandoverHatToCustomer(this, h);
+            }
         }
     }
 
