@@ -8,6 +8,7 @@ public class Order
 {
     public Player player;
     public Hattributes hattributes;
+    public Customer OrderCustomer;
     public float timelimit;
     public float timer;
 }
@@ -21,10 +22,6 @@ public class Orders : MonoBehaviour {
     //order with hattributes and player
     public float sizeThreshold = 1f;
 
-
-	// Use this for initialization
-	void Start () {
-	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -37,41 +34,62 @@ public class Orders : MonoBehaviour {
                 ExpireOrder(orders[i]);
             }
         }
-
 	}
+
+    public Player CheckForPlayerWithoutOrder(){
+
+        print(players.Count);
+        if(players.Count > orders.Count())
+        {
+            for (int i = 0; i < players.Count; i++)
+            {
+                if(players[i].PlayerOrders.Count < 1){
+                    print("Giving order to "+players[i].name);
+                    return players[i];
+                }
+            }
+        }
+      
+        print("All players have orders.");
+        return null;
+    }
 
     public void StartGame()
     {
-        foreach(Player p in players)
-        {
-            GiveNewOrder(p);
-        }
+       
+        //foreach(Player p in players)
+        //{
+        //    GiveNewOrder(p);
+       // }
     }
 
 
-    public void GiveNewOrder(Player player)
+    public void GiveNewOrder(Player player, Customer CustomerObj)
     {
         print("give new order "+player);
         Order order = new Order();
         order.player = player;
         order.hattributes = GenerateRandomHattribute();
-        order.timelimit = Random.Range(30f, 60f);
+        order.OrderCustomer = CustomerObj;
+        order.timelimit = Random.Range(10f, 20f);
         order.timer = order.timelimit;
         orders.Add(order);
         uimanager.CreateUIOrder(order);
+        player.PlayerOrders.Add(order);
     }
 
     public void ExpireOrder(Order order)
     {
         print("expire");
-
+        order.OrderCustomer.GetTheFuckOut();
+        uimanager.RemoveUIOrder(order);
         orders.Remove(order);
 
         //do UI Things
 
         //take points away from player
 
-        GiveNewOrder(order.player);
+        //GiveNewOrder(order.player);
     }
 
 

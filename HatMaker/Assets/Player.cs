@@ -14,6 +14,7 @@ public class Player : MonoBehaviour {
     public float speed = 5f;
 
     public float maxVelocityMagnitude = 30f;
+    public List<Order> PlayerOrders;
 
     Quaternion rotation;
 	// Use this for initialization
