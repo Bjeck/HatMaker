@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour {
 
     int maxPlayerCount = 4;
 
-    public static int playerCount = 4;
+    public static int playerCount = 0;
 
     public List<Player> playersAtStart = new List<Player>(); 
 

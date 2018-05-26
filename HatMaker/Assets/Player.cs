@@ -2,10 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour
+{
 
     [SerializeField] GameObject linePrefab;
     Transform line;
+
+    [System.Serializable]
+    public class Billboards{
+        public SpriteRenderer SpriteComponent;
+        [Header("Sprites")]
+        public Sprite Front;
+        public Sprite Back;
+        public Sprite Right;
+        public Sprite Left;
+    }
+
+    public Billboards PlayerSprites;
 
     public string controller;
     public Color color;
@@ -45,23 +58,11 @@ public class Player : MonoBehaviour {
 
         if(rigidbody.velocity.magnitude < maxVelocityMagnitude)
         {
+           
             rigidbody.AddForce(velocity, ForceMode.VelocityChange);
         }
 
-        transform.position = new Vector3(transform.position.x, 1.022739f, transform.position.z); //magic numbers ftw!!
-
-        //rigidbody.velocity = new Vector3(rigidbody.velocity.x, 1, rigidbody.velocity.z);
-        //print(rigidbody.velocity);
-
-        if(rigidbody.velocity.magnitude > 0.5f)
-        {
-            transform.LookAt(transform.position + rigidbody.velocity);
-        //rigidbody.angularVelocity = Vector3.zero;
-            rotation.eulerAngles = new Vector3(0, transform.rotation.eulerAngles.y, 0);
-
-            transform.rotation = rotation;
-        }
-
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z); //magic numbers ftw!!
 
         if (hInput.GetButtonDown(controller + "Use"))
         {
@@ -71,6 +72,53 @@ public class Player : MonoBehaviour {
         TestInteraction();
         DrawLine();
 
+        float x = rigidbody.velocity.x;
+        float z = rigidbody.velocity.z;
+
+        if (x > 0f && z > 0)
+        {
+            // TOP RIGHT
+            if(x > z){
+                PlayerSprites.SpriteComponent.sprite = PlayerSprites.Right;
+            }else{
+                PlayerSprites.SpriteComponent.sprite = PlayerSprites.Back;
+            }
+        }else if(x > 0f && z < 0)
+        {
+            // BOTTOM RIGHT
+            if (x > Mathf.Abs(z))
+            {
+                PlayerSprites.SpriteComponent.sprite = PlayerSprites.Right;
+            }
+            else
+            {
+                PlayerSprites.SpriteComponent.sprite = PlayerSprites.Front;
+            }
+        }
+        else if (x < 0f && z < 0)
+        {
+            // BOTTOM LEFT
+            if (Mathf.Abs(x) > Mathf.Abs(z))
+            {
+                PlayerSprites.SpriteComponent.sprite = PlayerSprites.Left;
+            }
+            else
+            {
+                PlayerSprites.SpriteComponent.sprite = PlayerSprites.Front;
+            }
+        }else{
+            // TOP LEFT
+            if (x > Mathf.Abs(z))
+            {
+                PlayerSprites.SpriteComponent.sprite = PlayerSprites.Left;
+            }
+            else
+            {
+                PlayerSprites.SpriteComponent.sprite = PlayerSprites.Back;
+            }
+        }
+
+        //PlayerSprites.SpriteComponent.sprite = PlayerSprites.Left;
     }
 
     void DrawLine()
@@ -103,8 +151,6 @@ public class Player : MonoBehaviour {
         
     }
 
-
-
     public void AddPoints(int pointsToAdd)
     {
         Points += pointsToAdd;
@@ -127,6 +173,7 @@ public class Player : MonoBehaviour {
 
     public void DropHat()
     {
+        
         heldHat.RemoveHatFromPlayer();
         heldHat = null;
     }
@@ -136,7 +183,7 @@ public class Player : MonoBehaviour {
     void TestInteraction()
     {
         RaycastHit[] hits;
-        hits = Physics.SphereCastAll(transform.position, 4, transform.forward, 3f);
+        hits = Physics.SphereCastAll(transform.position, 8, Vector3.forward, 0.1f);
 
         List<GameObject> objects = new List<GameObject>();
 

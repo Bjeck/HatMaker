@@ -235,7 +235,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 3.47, z: 1}
+  m_Size: {x: 1, y: 7.96, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &145225922
 MeshFilter:
@@ -342,6 +342,69 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 3.8400002, y: 22.170002, z: 0.23900001}
+--- !u!1001 &227333869
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4730203287392358, guid: 40de4aa1238a4ee4da192cca8ca1743b, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730203287392358, guid: 40de4aa1238a4ee4da192cca8ca1743b, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 4.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730203287392358, guid: 40de4aa1238a4ee4da192cca8ca1743b, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730203287392358, guid: 40de4aa1238a4ee4da192cca8ca1743b, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730203287392358, guid: 40de4aa1238a4ee4da192cca8ca1743b, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730203287392358, guid: 40de4aa1238a4ee4da192cca8ca1743b, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730203287392358, guid: 40de4aa1238a4ee4da192cca8ca1743b, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730203287392358, guid: 40de4aa1238a4ee4da192cca8ca1743b, type: 2}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 114600445051669458, guid: 40de4aa1238a4ee4da192cca8ca1743b,
+        type: 2}
+      propertyPath: PlayerSprites.SpriteComponent
+      value: 
+      objectReference: {fileID: 934980097}
+    - target: {fileID: 135818168147379108, guid: 40de4aa1238a4ee4da192cca8ca1743b,
+        type: 2}
+      propertyPath: m_Radius
+      value: 4.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 114600445051669458, guid: 40de4aa1238a4ee4da192cca8ca1743b,
+        type: 2}
+      propertyPath: speed
+      value: 4.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 54046103213913564, guid: 40de4aa1238a4ee4da192cca8ca1743b,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 65716372252686894, guid: 40de4aa1238a4ee4da192cca8ca1743b, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: 40de4aa1238a4ee4da192cca8ca1743b, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &311558121
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,7 +532,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 4.78, z: 1}
+  m_Size: {x: 1, y: 7.32, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &526770933
 MeshFilter:
@@ -572,6 +635,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 69.024, y: 0, z: 0}
+--- !u!1 &706856610 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1239880400174012, guid: 40de4aa1238a4ee4da192cca8ca1743b,
+    type: 2}
+  m_PrefabInternal: {fileID: 227333869}
+--- !u!136 &706856611
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 706856610}
+  m_Material: {fileID: 13400000, guid: 20330419eb97d8e42a5d36c5d3c7c40d, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.58
+  m_Height: 5.13
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &725161465
 Prefab:
   m_ObjectHideFlags: 0
@@ -882,9 +963,19 @@ Prefab:
       propertyPath: m_LocalPosition.x
       value: -0.14000049
       objectReference: {fileID: 0}
+    - target: {fileID: 65919665785607864, guid: 48e621ffb999548a4af92e34ee39ba29,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 78.34
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 48e621ffb999548a4af92e34ee39ba29, type: 2}
   m_IsPrefabParent: 0
+--- !u!212 &934980097 stripped
+SpriteRenderer:
+  m_PrefabParentObject: {fileID: 212442590134078994, guid: 40de4aa1238a4ee4da192cca8ca1743b,
+    type: 2}
+  m_PrefabInternal: {fileID: 227333869}
 --- !u!1 &980751011
 GameObject:
   m_ObjectHideFlags: 0
@@ -1233,7 +1324,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 5.05, z: 1}
+  m_Size: {x: 1, y: 7.96, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1697663299
 MeshFilter:
