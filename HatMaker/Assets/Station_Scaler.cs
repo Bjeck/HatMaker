@@ -19,39 +19,41 @@ public class Station_Scaler : MonoBehaviour {
 
     [Header("#### Children")]
     public GameObject SnapPoint;
-    public GameObject PointWhenFinish;
+    public GameObject Handle;
+    private Vector3 HandleStartpos;
+    public GameObject PullStation;
+
+    void Awake(){
+        HandleStartpos = Handle.transform.position;
+    }
 
     private void OnTriggerEnter(Collider col)
     {
         if(col.gameObject.tag == "Hat" && ConnectedObject == null)
         {
-            Hat H = col.GetComponent<Hat>();
-            Rigidbody ObjRB = H.GetComponent<Rigidbody>();
-            ObjRB.velocity = Vector3.zero;
-            ObjRB.angularVelocity = Vector3.zero;
-            ObjRB.isKinematic = true;
-
-            Transform ObjTra = H.GetComponent<Transform>();
-            ObjTra.transform.position = SnapPoint.transform.position;
-            ObjTra.transform.rotation = Quaternion.identity;
-
-            H.RemoveHatFromPlayer();
-            H.enabled = false;
-
             ConnectedObject = col.gameObject;  
         }
     }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Hat")
+        {
+            ConnectedObject = null;
+        }
+    }
 
-    public void OnInteract(object G)
+    public void InteractionWithHandle()
     {
         //print("Interact");
-        P = (G as Player);
+        P = Handle.GetComponent<Interact>().PlayerObject;
         if(ConnectedObject != null)
         {
             hasClicked = true;
             OriginalScale = ConnectedObject.transform.localScale.x;
             ConnectedObject.GetComponent<Collider>().enabled = false;
-        }else{
+        }
+        else
+        {
             print("Scaler: No Hat");
         }
     }
@@ -60,10 +62,12 @@ public class Station_Scaler : MonoBehaviour {
     {
         if(hasClicked)
         {
-            ScaleProportion = Vector3.Distance(P.transform.position, this.transform.position)*DistanceMultiplier;
+            Handle.transform.position = P.transform.position;
+            ScaleProportion = Vector3.Distance(PullStation.transform.position, Handle.transform.position)*DistanceMultiplier;
             float NS = ScaleProportion * OriginalScale;
 
-            if(NS > MaxScale){
+            if(NS > MaxScale)
+            {
                 NS = MaxScale;
             }
             if(NS < 0f){
@@ -80,11 +84,15 @@ public class Station_Scaler : MonoBehaviour {
                 StartCoroutine(CooldownRoutine());
             }
         }
+        else
+        {
+            Handle.transform.position = Vector3.Lerp(Handle.transform.position, HandleStartpos, Time.deltaTime * 2);
+        }
     }
 
     IEnumerator CooldownRoutine()
     {
-        ConnectedObject.transform.position = PointWhenFinish.transform.position;
+        
         ConnectedObject.GetComponent<Collider>().enabled = true;
         ConnectedObject.GetComponent<Rigidbody>().isKinematic = false;
         ScaleProportion = 1f;
