@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 54092134663113122}
   - component: {fileID: 114347280711895774}
   - component: {fileID: 212836501634034580}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hat_Bowler
   m_TagString: Hat
   m_Icon: {fileID: 0}
@@ -87,6 +87,7 @@ MonoBehaviour:
     size: {x: 0, y: 0, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     accessories: 
+  RB: {fileID: 0}
 --- !u!212 &212836501634034580
 SpriteRenderer:
   m_ObjectHideFlags: 1

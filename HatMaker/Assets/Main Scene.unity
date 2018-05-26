@@ -167,6 +167,16 @@ Prefab:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114337523438846720, guid: 3a8d6759cc2c24285aadba350fee00aa,
+        type: 2}
+      propertyPath: MaxScale
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114337523438846720, guid: 3a8d6759cc2c24285aadba350fee00aa,
+        type: 2}
+      propertyPath: MinScale
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 145953092999717416, guid: 3a8d6759cc2c24285aadba350fee00aa, type: 2}
     - {fileID: 54439437022603118, guid: 3a8d6759cc2c24285aadba350fee00aa, type: 2}
@@ -1314,6 +1324,52 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4d429841686e947ce8a217990846a23f, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &2079913139
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4858061634627864, guid: e150f6cfcdddb574da8f8e36929c8e66, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858061634627864, guid: e150f6cfcdddb574da8f8e36929c8e66, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 3.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858061634627864, guid: e150f6cfcdddb574da8f8e36929c8e66, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 7.052
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858061634627864, guid: e150f6cfcdddb574da8f8e36929c8e66, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858061634627864, guid: e150f6cfcdddb574da8f8e36929c8e66, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858061634627864, guid: e150f6cfcdddb574da8f8e36929c8e66, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858061634627864, guid: e150f6cfcdddb574da8f8e36929c8e66, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858061634627864, guid: e150f6cfcdddb574da8f8e36929c8e66, type: 2}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1243728979620882, guid: e150f6cfcdddb574da8f8e36929c8e66, type: 2}
+      propertyPath: m_Name
+      value: Hat_Fedora (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e150f6cfcdddb574da8f8e36929c8e66, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &2096993014
 Prefab:

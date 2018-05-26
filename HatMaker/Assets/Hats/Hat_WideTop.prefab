@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 54005829863833808}
   - component: {fileID: 114627053249592932}
   - component: {fileID: 212109405673867308}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hat_WideTop
   m_TagString: Hat
   m_Icon: {fileID: 0}
@@ -87,6 +87,7 @@ MonoBehaviour:
     size: {x: 0, y: 0, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     accessories: 
+  RB: {fileID: 0}
 --- !u!212 &212109405673867308
 SpriteRenderer:
   m_ObjectHideFlags: 1

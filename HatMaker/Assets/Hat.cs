@@ -28,6 +28,7 @@ public class Hat : MonoBehaviour {
     SphereCollider col;
     public Hattributes hattributes;
     public Rigidbody RB;
+    Quaternion rot;
 
     void Start(){
         RB = GetComponent<Rigidbody>();
@@ -38,17 +39,19 @@ public class Hat : MonoBehaviour {
         if(connectedPlayer != null)
         {
             float dist = Vector3.Distance(connectedPlayer.transform.position, transform.position);
-            if(dist > 5f)
-            {
-                transform.position = Vector3.Lerp(transform.position, connectedPlayer.transform.position, Time.deltaTime * 2);
+            //if(dist > 5f)
+            //{
+                transform.position = Vector3.Lerp(transform.position, connectedPlayer.transform.position + connectedPlayer.transform.forward * 5, Time.deltaTime * 3.5f);
 
                 if (dist > col.radius)
                 {
                     transform.position = col.ClosestPoint(transform.position);
                 }
-            }
+            //}
 
         }
+        rot.eulerAngles = new Vector3(90, 0, 0);
+        transform.rotation = rot;
     }
     
     public void RemoveHatFromPlayer()
