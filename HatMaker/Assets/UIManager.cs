@@ -13,6 +13,8 @@ public class UIManager : MonoBehaviour {
 
     List<UIOrder> ordersInUI = new List<UIOrder>();
 
+    public Scoreboard scoreboard;
+
 	// Use this for initialization
 	void Start () {
         gamemanager = GetComponent<GameManager>();
@@ -30,7 +32,7 @@ public class UIManager : MonoBehaviour {
         ord.Setup(order);
 
         //place over customer
-        g.transform.position = gamemanager.customerLine.GetCustomerByOrder(order).transform.position + (Vector3.up * 15) + (Vector3.forward * 4);
+        g.transform.position = gamemanager.customerLine.GetCustomerByOrder(order).transform.position + (Vector3.up * 15) + (Vector3.forward * 4);  //mmmmmmaaagic nuymbers! :D #guesswho
 
         ordersInUI.Add(ord);
     }
@@ -43,6 +45,11 @@ public class UIManager : MonoBehaviour {
         //print(ord);
         Destroy(ord.gameObject);
         
+    }
+
+    public void UpdateScore()
+    {
+        scoreboard.UpdateScores();
     }
 
 

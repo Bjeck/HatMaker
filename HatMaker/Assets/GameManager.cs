@@ -10,7 +10,9 @@ public class GameManager : MonoBehaviour {
 
     int maxPlayerCount = 4;
 
-    public static int playerCount = 4;
+    public static int playerCount = 1;
+
+    public UIManager ui;
 
     public List<Player> playersAtStart = new List<Player>(); 
 
@@ -19,6 +21,8 @@ public class GameManager : MonoBehaviour {
 
     private void Start()
     {
+        ui = GetComponent<UIManager>();
+
         for (int i = 0; i < playerCount; i++)
         {
             GameObject g = Instantiate(playerPrefab, transform.position, Quaternion.identity);

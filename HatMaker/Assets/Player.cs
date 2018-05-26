@@ -7,6 +7,8 @@ public class Player : MonoBehaviour {
     [SerializeField] GameObject linePrefab;
     Transform line;
 
+    GameManager gamemanager;
+
     public string controller;
     public Color color;
 
@@ -28,6 +30,7 @@ public class Player : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        gamemanager = GameObject.Find("Managers").GetComponent<GameManager>();
         rigidbody = GetComponent<Rigidbody>();
 	}
 
@@ -107,6 +110,7 @@ public class Player : MonoBehaviour {
     public void AddPoints(int pointsToAdd)
     {
         Points += pointsToAdd;
+        gamemanager.ui.UpdateScore();
     }
 
 
