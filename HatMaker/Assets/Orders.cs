@@ -55,7 +55,7 @@ public class Orders : MonoBehaviour {
         Order order = new Order();
         order.player = player;
         order.hattributes = GenerateRandomHattribute();
-        order.timelimit = Random.Range(30f, 60f);
+        order.timelimit = Random.Range(10f, 10f);
         order.timer = order.timelimit;
         orders.Add(order);
         uimanager.CreateUIOrder(order);
@@ -68,6 +68,7 @@ public class Orders : MonoBehaviour {
         orders.Remove(order);
 
         //do UI Things
+        uimanager.RemoveUIOrder(order);
 
         //take points away from player
 

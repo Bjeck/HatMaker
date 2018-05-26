@@ -7,6 +7,7 @@ public class UIOrder : MonoBehaviour {
 
     Dictionary<HatTypeName, Sprite> hattypeSprite = new Dictionary<HatTypeName, Sprite>();
 
+    public Image playerBackground;
     public Image image;
     public Image scale;
     public Image color;
@@ -33,6 +34,7 @@ public class UIOrder : MonoBehaviour {
 
         scale.fillAmount = Map(order.hattributes.size.x, 1.5f, 5f, 0f, 1f);
         color.color = order.hattributes.color;
+        playerBackground.color = order.player.color;
 
         timer = order.timelimit;
     }

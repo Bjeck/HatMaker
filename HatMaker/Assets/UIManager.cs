@@ -24,7 +24,9 @@ public class UIManager : MonoBehaviour {
     public void CreateUIOrder(Order order)
     {
         GameObject g = Instantiate(uiOrderObject,orderListParent);
-        g.GetComponent<UIOrder>().Setup(order);
+        UIOrder ord = g.GetComponent<UIOrder>();
+        ord.Setup(order);
+        ordersInUI.Add(ord);
     }
 
     public void RemoveUIOrder(Order order)
@@ -32,9 +34,9 @@ public class UIManager : MonoBehaviour {
         UIOrder ord = ordersInUI.Find(x => x.order.player == order.player);
         ordersInUI.Remove(ord);
 
+        print(ord);
         Destroy(ord.gameObject);
-
-
+        
     }
 
 

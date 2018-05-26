@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     public string controller;
+    public Color color;
 
     Rigidbody rigidbody;
 
@@ -20,6 +21,12 @@ public class Player : MonoBehaviour {
 	void Start () {
         rigidbody = GetComponent<Rigidbody>();
 	}
+
+    public void Setup(Color col)
+    {
+        color = col;
+        GetComponent<Renderer>().material.color = col;
+    }
 	
 	// Update is called once per frame
 	void Update () {

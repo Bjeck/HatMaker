@@ -70,7 +70,6 @@ public class HatColorStation : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Renderer renderer = other.gameObject.GetComponent<Renderer>();
-        Debug.Log("Adding GameObject " + other.gameObject.name + " with material: " + renderer);
         if(renderer != null)
         {
             renderersOnStation.Add(renderer);
@@ -80,7 +79,6 @@ public class HatColorStation : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         Renderer renderer = other.gameObject.GetComponent<Renderer>();
-        Debug.Log("Removing GameObject " + other.gameObject.name + " with material: " + renderer);
         if(renderer != null)
         {
             renderersOnStation.Remove(renderer);

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
+    public List<Color> playerColors = new List<Color>();
+
     public GameObject playerPrefab;
 
     int maxPlayerCount = 4;
@@ -21,6 +23,7 @@ public class GameManager : MonoBehaviour {
             GameObject g = Instantiate(playerPrefab, transform.position, Quaternion.identity);
             Player p = g.GetComponent<Player>();
             p.controller = "Pad" + (i+1);
+            p.Setup(playerColors[i]);
             playersAtStart.Add(p);
         }
 
