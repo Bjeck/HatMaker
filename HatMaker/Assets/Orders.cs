@@ -83,7 +83,6 @@ public class Orders : MonoBehaviour {
     {
         print("expire");
         order.OrderCustomer.GetTheFuckOut();
-        uimanager.RemoveUIOrder(order);
         orders.Remove(order);
 
         //do UI Things
