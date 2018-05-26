@@ -245,6 +245,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4727338903636572}
+  - component: {fileID: 114222515523226488}
   m_Layer: 0
   m_Name: Display Object Parent
   m_TagString: Untagged
@@ -1492,6 +1493,19 @@ MonoBehaviour:
   DisplayText: {fileID: 114530801864175504}
   GreenMaterial: {fileID: 2100000, guid: a74129f7af07d4c7f95731d65af4d6ec, type: 2}
   RedMaterial: {fileID: 2100000, guid: 163b797cb4b3e4f538d0e08a5bd99ec8, type: 2}
+--- !u!114 &114222515523226488
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1597070148459856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dea86ea7b44484102ac3840acf58a9a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axis: {x: 0, y: 1, z: 0}
+  speed: 50
 --- !u!114 &114323201874809188
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1626,7 +1640,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.5
+  m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &135678167766160428
 SphereCollider:
@@ -1638,7 +1652,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.5
+  m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!222 &222270442730764956
 CanvasRenderer:

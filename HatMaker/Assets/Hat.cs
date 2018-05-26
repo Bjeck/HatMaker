@@ -13,13 +13,15 @@ public enum HatAccessory
     Feather, Sword, Monocle, Plane, Pipe, 
 }
 
-
+[System.Serializable]
 public class Hattributes
 {
     public HatTypeName type;
     public Vector3 size;
     public Color color;
     public HatAccessory[] accessories;
+
+
 }
 
 public class Hat : MonoBehaviour {
