@@ -10,11 +10,12 @@ public class GameManager : MonoBehaviour {
 
     int maxPlayerCount = 4;
 
-    public static int playerCount = 1;
+    public static int playerCount = 4;
 
     public List<Player> playersAtStart = new List<Player>(); 
 
     public Orders orders;
+    public CustomerLine customerLine;
 
     private void Start()
     {
@@ -32,6 +33,9 @@ public class GameManager : MonoBehaviour {
         orders.StartGame();
 
     }
+
+
+
 
 
 }

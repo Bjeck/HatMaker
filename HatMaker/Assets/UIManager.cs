@@ -9,11 +9,13 @@ public class UIManager : MonoBehaviour {
 
     public RectTransform orderListParent;
 
+    GameManager gamemanager;
+
     List<UIOrder> ordersInUI = new List<UIOrder>();
 
 	// Use this for initialization
 	void Start () {
-		
+        gamemanager = GetComponent<GameManager>();
 	}
 	
 	// Update is called once per frame
@@ -23,9 +25,13 @@ public class UIManager : MonoBehaviour {
 
     public void CreateUIOrder(Order order)
     {
-        GameObject g = Instantiate(uiOrderObject,orderListParent);
+        GameObject g = Instantiate(uiOrderObject);
         UIOrder ord = g.GetComponent<UIOrder>();
         ord.Setup(order);
+
+        //place over customer
+        g.transform.position = gamemanager.customerLine.GetCustomerByOrder(order).transform.position + (Vector3.up * 15) + (Vector3.forward * 4);
+
         ordersInUI.Add(ord);
     }
 
