@@ -113,6 +113,10 @@ public class Orders : MonoBehaviour {
         int r = Random.Range(0, 4); //amount of hat types
         hattributes.type = (HatTypeName)r;
 
+        r = Random.Range(0, 6);
+
+        hattributes.accessories.Add((HatAccessory)r);
+
         return hattributes;
     }
     
@@ -127,6 +131,10 @@ public class Orders : MonoBehaviour {
         {
             totalScore += 100;
         }
+        if(HasAccessory(thisOrder, hat))
+        {
+            totalScore += 50;
+        }
         totalScore -= SizeEvaluation(thisOrder, hat);
         totalScore -= ColorEvaluation(thisOrder, hat);
 
@@ -135,7 +143,7 @@ public class Orders : MonoBehaviour {
             totalScore = 0;
         }
 
-        print("Evaluated hat " + hat + " with points " + totalScore+ "   " + IsTypeCorrect(thisOrder, hat) + "  "  + SizeEvaluation(thisOrder, hat) + "  " + ColorEvaluation(thisOrder, hat));
+        print("Evaluated hat " + hat + " with points " + totalScore+ "   " + IsTypeCorrect(thisOrder, hat) +  "  "  + HasAccessory(thisOrder,hat) + "  "  + SizeEvaluation(thisOrder, hat) + "  " + ColorEvaluation(thisOrder, hat));
 
         player.AddPoints(totalScore);
 
@@ -155,6 +163,18 @@ public class Orders : MonoBehaviour {
         {
             return false;
         }
+    }
+
+    bool HasAccessory(Order order, Hat hat)
+    {
+        for (int i = 0; i < order.hattributes.accessories.Count; i++)
+        {
+            if (hat.hattributes.accessories.Contains(order.hattributes.accessories[i]))
+            {
+                return true; // i know this will fail with multiple accessories but w/e for now
+            }
+        }
+        return false;
     }
 
     int SizeEvaluation(Order order, Hat hat)

@@ -25,7 +25,7 @@ GameObject:
   m_Name: Display Number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1065768224238088
@@ -43,7 +43,7 @@ GameObject:
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1173943119113156
@@ -61,7 +61,7 @@ GameObject:
   m_Name: LED
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1179458146431414
@@ -79,7 +79,7 @@ GameObject:
   m_Name: Display Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1246478923409340
@@ -97,7 +97,7 @@ GameObject:
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1260124538815376
@@ -114,9 +114,9 @@ GameObject:
   - component: {fileID: 114847484584446940}
   m_Layer: 0
   m_Name: Next Accessory Button
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1344582884162308
@@ -131,7 +131,7 @@ GameObject:
   m_Name: Display
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1351773945800022
@@ -149,7 +149,7 @@ GameObject:
   m_Name: Display Number Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1393866747055572
@@ -167,7 +167,7 @@ GameObject:
   m_Name: LED
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1405707950765438
@@ -185,7 +185,7 @@ GameObject:
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1413516357553854
@@ -202,7 +202,7 @@ GameObject:
   m_Name: Display Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1547191701850638
@@ -217,7 +217,7 @@ GameObject:
   m_Name: Spawn Points
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1577451783414658
@@ -234,7 +234,7 @@ GameObject:
   m_Name: Spawn Point 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1597070148459856
@@ -250,7 +250,7 @@ GameObject:
   m_Name: Display Object Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1678806722788888
@@ -267,7 +267,7 @@ GameObject:
   m_Name: Spawn Point 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1695043466651756
@@ -284,9 +284,9 @@ GameObject:
   - component: {fileID: 114165231172124718}
   m_Layer: 0
   m_Name: Spawn Button
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1696584577908828
@@ -304,7 +304,7 @@ GameObject:
   m_Name: LED
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1719779961017090
@@ -322,7 +322,7 @@ GameObject:
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1783692988930946
@@ -339,7 +339,7 @@ GameObject:
   m_Name: Spawn Point 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1837045060794866
@@ -355,7 +355,7 @@ GameObject:
   m_Name: Station_Accessories
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1934519201008490
@@ -374,7 +374,7 @@ GameObject:
   m_Name: Station
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1979376043362630
@@ -389,7 +389,7 @@ GameObject:
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1990150490476376
@@ -407,7 +407,7 @@ GameObject:
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4050525918716364
@@ -542,7 +542,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1837045060794866}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.1, y: 1.8014423, z: -20.7}
+  m_LocalPosition: {x: -9.78, y: -1.7, z: -23.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4242841158485334}
@@ -1364,7 +1364,7 @@ BoxCollider:
   m_GameObject: {fileID: 1179458146431414}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1436,7 +1436,7 @@ BoxCollider:
   m_GameObject: {fileID: 1934519201008490}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1479,9 +1479,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AccessoryPrefabs:
+  - {fileID: 1896988666664876, guid: ce19be5a97e5a724e8d11c481a9b39db, type: 2}
   - {fileID: 1033083884698752, guid: b371207c035b74fab9f517a5bc7627aa, type: 2}
-  - {fileID: 1185462485604498, guid: 74c637b6bfdbc42879584a853ae8cec4, type: 2}
-  - {fileID: 1011497924234126, guid: 78f8e64bef8c64df784080ec5e705a8d, type: 2}
+  - {fileID: 1495188425704346, guid: 0d7a52ec44fc7364f89f573ac64e6afa, type: 2}
+  - {fileID: 1926340030329156, guid: bd5a7a3aab1a6234cbd92266c0b79c34, type: 2}
+  - {fileID: 1122109497891810, guid: a71e1f6aab817b047828a9bcf235fa36, type: 2}
+  - {fileID: 1926340030329156, guid: bd5a7a3aab1a6234cbd92266c0b79c34, type: 2}
   SpawnPoints:
   - SpawnPoint: {fileID: 4811159748963152}
     SpawnLED: {fileID: 23989224093327718}

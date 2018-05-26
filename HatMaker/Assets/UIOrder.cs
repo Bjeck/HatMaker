@@ -8,10 +8,14 @@ public class UIOrder : MonoBehaviour {
     [SerializeField] List<Sprite> hatsprites = new List<Sprite>();
     Dictionary<HatTypeName, Sprite> hattypeSprite = new Dictionary<HatTypeName, Sprite>();
 
+    [SerializeField] List<Sprite> accessorysprites = new List<Sprite>();
+    Dictionary<HatAccessory, Sprite> accessorytypeSprite = new Dictionary<HatAccessory, Sprite>();
+
     public Image playerBackground;
     public Image image;
     public Image scale;
     public Image color;
+    public Image accessoryImage;
     public Text text;
     public Order order;
 
@@ -22,6 +26,10 @@ public class UIOrder : MonoBehaviour {
         for (int i = 0; i < hatsprites.Count; i++)
         {
             hattypeSprite.Add((HatTypeName)System.Enum.Parse(typeof(HatTypeName), hatsprites[i].name), hatsprites[i]);
+        }
+        for (int i = 0; i < accessorysprites.Count; i++)
+        {
+            accessorytypeSprite.Add((HatAccessory)System.Enum.Parse(typeof(HatAccessory), accessorysprites[i].name), accessorysprites[i]);
         }
     }
 
@@ -39,6 +47,12 @@ public class UIOrder : MonoBehaviour {
         {
             image.sprite = hattypeSprite[order.hattributes.type];
         }
+
+        if (accessorytypeSprite.ContainsKey(order.hattributes.accessories[0]))
+        {
+            accessoryImage.sprite = accessorytypeSprite[order.hattributes.accessories[0]];
+        }
+
 
         scale.fillAmount = Map(order.hattributes.size.x, 1.5f, 5f, 0f, 1f);
         color.color = order.hattributes.color;

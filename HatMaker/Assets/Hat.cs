@@ -10,7 +10,7 @@ public enum HatTypeName
 
 public enum HatAccessory
 {
-    Feather, Sword, Monocle, Plane, Pipe, 
+    None, Feather, Sword, Glasses, Eyes, Flower, Gear 
 }
 
 [System.Serializable]
@@ -19,7 +19,7 @@ public class Hattributes
     public HatTypeName type;
     public Vector3 size;
     public Color color;
-    public HatAccessory[] accessories;
+    public List<HatAccessory> accessories = new List<HatAccessory>();
 }
 
 public class Hat : MonoBehaviour {

@@ -39,6 +39,14 @@ public class GameManager : MonoBehaviour {
     }
 
 
+    public void EndGame()
+    {
+
+        Camera.main.gameObject.GetComponent<CameraControl>().MoveToScoreBoard();
+
+    }
+
+
 
 
 

@@ -196,7 +196,7 @@ public class CustomerLine : MonoBehaviour {
         Transform customer = HandlePosition[handoverplaces.IndexOf(place)].OccupiedBy.transform;
         hat.transform.SetParent(customer);
         hat.transform.rotation = Quaternion.identity;
-        hat.transform.position = customer.transform.position + Vector3.up;
+        hat.transform.position = customer.transform.position + Vector3.up * 2f;
 
         gamemanager.orders.ExpireOrder(customer.gameObject.GetComponent<Customer>());
 
@@ -221,7 +221,7 @@ public class CustomerLine : MonoBehaviour {
 
         if(customersAtEnd.Count <= 0)
         {
-            //END GAME
+            gamemanager.EndGame();
         }
     }
 
