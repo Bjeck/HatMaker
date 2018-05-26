@@ -83,7 +83,6 @@ public class Player : MonoBehaviour
 
         float x = velocity.x;
         float z = velocity.z;
-        print(velocity);
 
         if (x > 0f && z >= 0)
         {
