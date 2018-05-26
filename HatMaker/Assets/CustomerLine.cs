@@ -19,7 +19,7 @@ public class CustomerPositionClass
 
     public void HasReached()
     {
-        Orders O = GameObject.Find("Managers").GetComponentInChildren<Orders>();
+        Orders O = GameObject.Find("Managers").GetComponent<GameManager>().orders;
         Player P = O.CheckForPlayerWithoutOrder();
         if(P != null){
             Debug.Log("Found player without order");

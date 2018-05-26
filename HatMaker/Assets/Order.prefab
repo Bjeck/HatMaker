@@ -293,11 +293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a68971836c371d6489469a29f6d8f1a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hatsprites:
-  - {fileID: 21300000, guid: d848cf443084ae34d96159fd41da4158, type: 3}
-  - {fileID: 21300000, guid: 2ac270e9da7bdb34dbc836736fefff41, type: 3}
-  - {fileID: 21300000, guid: 79c31d53ae19abf42a9c4dd4056f3428, type: 3}
-  - {fileID: 21300000, guid: da3d4d54f1974eb4ea8f960f6ca709e6, type: 3}
+  hatsprites: []
   playerBackground: {fileID: 114265501642661998}
   image: {fileID: 114159806667192152}
   scale: {fileID: 114128926665993228}
@@ -310,6 +306,7 @@ MonoBehaviour:
       size: {x: 0, y: 0, z: 0}
       color: {r: 0, g: 0, b: 0, a: 0}
       accessories: 
+    OrderCustomer: {fileID: 0}
     timelimit: 0
     timer: 0
 --- !u!222 &222148107495057426
