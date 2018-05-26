@@ -19,6 +19,8 @@ public class Orders : MonoBehaviour {
     public UIManager uimanager;
     public List<Order> orders = new List<Order>();
 
+
+
     //order with hattributes and player
     public float sizeThreshold = 1f;
 
@@ -66,7 +68,6 @@ public class Orders : MonoBehaviour {
 
     public void GiveNewOrder(Player player, Customer CustomerObj)
     {
-        print("give new order "+player);
         Order order = new Order();
         order.player = player;
         order.hattributes = GenerateRandomHattribute();
@@ -86,6 +87,7 @@ public class Orders : MonoBehaviour {
         orders.Remove(order);
 
         //do UI Things
+        uimanager.RemoveUIOrder(order);
 
         //take points away from player
 
@@ -101,7 +103,7 @@ public class Orders : MonoBehaviour {
 
         hattributes.color = Random.ColorHSV();
 
-        int r = Random.Range(0, 6); //amount of hat types
+        int r = Random.Range(0, 4); //amount of hat types
         hattributes.type = (HatTypeName)r;
 
         return hattributes;

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public enum HatTypeName
 {
-    Fedora, Bowler, Western, Cap, TopHat
+    Fedora, Bowler, TopHat, WideHat
 }
 
 public enum HatAccessory

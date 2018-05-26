@@ -134,6 +134,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 478bf0c076f15481c87133666b666040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerColors:
+  - {r: 0, g: 0.7814399, b: 0.9852941, a: 1}
+  - {r: 0.9705882, g: 0.02854674, b: 0.02854674, a: 1}
+  - {r: 0, g: 1, b: 0.048275948, a: 1}
+  - {r: 1, g: 0.97241366, b: 0, a: 0.978}
   playerPrefab: {fileID: 1239880400174012, guid: 40de4aa1238a4ee4da192cca8ca1743b,
     type: 2}
   playerCount: 1

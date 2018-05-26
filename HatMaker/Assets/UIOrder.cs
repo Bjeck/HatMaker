@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class UIOrder : MonoBehaviour {
 
+    [SerializeField] List<Sprite> hatsprites = new List<Sprite>();
     Dictionary<HatTypeName, Sprite> hattypeSprite = new Dictionary<HatTypeName, Sprite>();
 
+    public Image playerBackground;
     public Image image;
     public Image scale;
     public Image color;
@@ -15,6 +17,13 @@ public class UIOrder : MonoBehaviour {
 
     float timer;
 
+    private void Awake()
+    {
+        for (int i = 0; i < hatsprites.Count; i++)
+        {
+            hattypeSprite.Add((HatTypeName)System.Enum.Parse(typeof(HatTypeName), hatsprites[i].name), hatsprites[i]);
+        }
+    }
 
     private void Update()
     {
@@ -33,6 +42,7 @@ public class UIOrder : MonoBehaviour {
 
         scale.fillAmount = Map(order.hattributes.size.x, 1.5f, 5f, 0f, 1f);
         color.color = order.hattributes.color;
+        playerBackground.color = order.player.color;
 
         timer = order.timelimit;
     }

@@ -927,25 +927,38 @@ MonoBehaviour:
   HandlePosition:
   - Position: {fileID: 1746433906984044}
     OccupiedBy: {fileID: 0}
+    hasSeated: 0
   - Position: {fileID: 1330321342663650}
     OccupiedBy: {fileID: 0}
+    hasSeated: 0
   - Position: {fileID: 1934695916480358}
     OccupiedBy: {fileID: 0}
+    hasSeated: 0
   - Position: {fileID: 1972463638397388}
     OccupiedBy: {fileID: 0}
+    hasSeated: 0
   WaitingPosition:
   - Position: {fileID: 1854979059668168}
     OccupiedBy: {fileID: 0}
+    hasSeated: 0
   - Position: {fileID: 1770653093633518}
     OccupiedBy: {fileID: 0}
+    hasSeated: 0
   - Position: {fileID: 1889088457892088}
     OccupiedBy: {fileID: 0}
+    hasSeated: 0
   - Position: {fileID: 1339714160858756}
     OccupiedBy: {fileID: 0}
+    hasSeated: 0
   - Position: {fileID: 1977725647770324}
     OccupiedBy: {fileID: 0}
-  CustomerPrefab: {fileID: 0}
-  StartingPosition: {fileID: 0}
+    hasSeated: 0
+  CustomerPrefab: {fileID: 1419644336378198, guid: 0fadd2574c04548a28ce932f206416c3,
+    type: 2}
+  StartingPosition: {fileID: 1615254591479832}
+  SpawningRate: 30
+  SpawningVariability: 10
+  Timer: 0
 --- !u!135 &135013344029839652
 SphereCollider:
   m_ObjectHideFlags: 1
