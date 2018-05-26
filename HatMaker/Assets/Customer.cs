@@ -10,16 +10,13 @@ public class Customer : MonoBehaviour {
     public Transform TargetTransform;
     public CustomerPositionClass CPC;
     public bool isMoving = false;
+    public IEnumerator WaitingMovement;
+    public Quaternion TargetRotation;
 
     public void Start()
     {
         NMA = GetComponent<NavMeshAgent>();
-        CPC = CL.AskForPosition(gameObject);
-        if(CPC != null)
-        {
-            TargetTransform = CPC.Position.transform;
-            NMA.SetDestination(TargetTransform.position);
-        }
+        LookForNowPosition();
     }
 
     public void OnStartMoving()
@@ -28,20 +25,56 @@ public class Customer : MonoBehaviour {
     }
 
     public void OnStopMoving()
-    {
-        CPC.hasSeated = true;
-        CPC.HasReached();
+    {  
+        if(TargetTransform == CL.StartingPosition.transform)
+        {
+            // To late, take points!
+
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            CPC.hasSeated = true;
+            if(CL.HandlePosition.Contains(CPC))
+            {
+                CPC.HasReached(); 
+            }
+        }
     }
 
     public void GetTheFuckOut(){
+        CPC.OccupiedBy = null;
         TargetTransform = CL.StartingPosition.transform;
         NMA.SetDestination(TargetTransform.position);
+        CL.UpdateAllCustomerpositions();
+    }
+
+    public void SetPositionTo(CustomerPositionClass nCPC)
+    {
+        TargetTransform = nCPC.Position.transform;
+        NMA.SetDestination(TargetTransform.position);
+    }
+
+    public void LookForNowPosition(){
+        if(CPC.OccupiedBy != null){
+            CPC.OccupiedBy = null;
+        }
+
+        CPC = CL.AskForPosition(gameObject);
+        if(CPC != null){
+            SetPositionTo(CPC);
+        }
+
     }
 
     void Update()
     {
         if(NMA.hasPath && !isMoving){
-            print("Start to Move");
+            if(WaitingMovement != null){
+                StopCoroutine(WaitingMovement);
+                WaitingMovement = null;
+            }
+
             OnStartMoving();
             isMoving = true;
         }
@@ -49,12 +82,26 @@ public class Customer : MonoBehaviour {
         {
             if (!NMA.hasPath && isMoving)
             {
-                print("Stopping");
+                WaitingMovement = WaitingRoutine();
+                StartCoroutine(WaitingMovement);
+
                 OnStopMoving();
                 isMoving = false;
             }
-
+            transform.rotation = Quaternion.Lerp(transform.rotation, TargetRotation, Time.deltaTime*10);
         }
+    }
+
+    IEnumerator WaitingRoutine()
+    {
+        while(true)
+        {
+
+            TargetRotation = Quaternion.Euler(0, Random.Range(0, 360) , 0);
+
+            yield return new WaitForSeconds(Random.Range(5f,10f));
+        }
+
     }
 
 }

@@ -34,7 +34,7 @@ public class UIManager : MonoBehaviour {
         UIOrder ord = ordersInUI.Find(x => x.order.player == order.player);
         ordersInUI.Remove(ord);
 
-        print(ord);
+        //print(ord);
         Destroy(ord.gameObject);
         
     }

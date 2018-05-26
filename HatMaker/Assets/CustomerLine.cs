@@ -64,6 +64,7 @@ public class CustomerLine : MonoBehaviour {
 
             return AssignedPlace;
         }else{
+            print("Could not find place");
             return null;
         }
     }
@@ -74,6 +75,22 @@ public class CustomerLine : MonoBehaviour {
     public float SpawningRate = 30f;
     public float SpawningVariability = 10f;
     public float Timer = 0f;
+
+    void Awake()
+    {
+        // Sort out dep. on players.
+        HandlePosition = HandlePosition.OrderBy(go => go.Position.name).ToList();
+
+        for (int i = HandlePosition.Count-1; i > -1; i--)
+        {
+            if(i > GameManager.playerCount-1){
+                
+                CustomerPositionClass nCPC = HandlePosition[i];
+                HandlePosition.RemoveAt(i);
+                WaitingPosition.Insert(0,nCPC);
+            }
+        }
+    }
 
     void Start(){
         StartCoroutine(CustomerSpawner());
@@ -101,6 +118,17 @@ public class CustomerLine : MonoBehaviour {
         for (int i = 0; i < num; i++){
             GameObject newCustomer = (Instantiate(CustomerPrefab, StartingPosition.transform.position, Quaternion.identity)) as GameObject;
             newCustomer.GetComponent<Customer>().CL = this;
+        }
+    }
+
+    public void UpdateAllCustomerpositions()
+    {
+        for (int i = 0; i < WaitingPosition.Count; i++)
+        {
+            GameObject C = WaitingPosition[i].OccupiedBy;
+            if(C != null){
+                C.GetComponent<Customer>().LookForNowPosition();
+            }
         }
     }
 }

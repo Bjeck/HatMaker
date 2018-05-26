@@ -19,8 +19,6 @@ public class Orders : MonoBehaviour {
     public UIManager uimanager;
     public List<Order> orders = new List<Order>();
 
-
-
     //order with hattributes and player
     public float sizeThreshold = 1f;
 
@@ -40,19 +38,19 @@ public class Orders : MonoBehaviour {
 
     public Player CheckForPlayerWithoutOrder(){
 
-        print(players.Count);
+        //print(players.Count);
         if(players.Count > orders.Count())
         {
             for (int i = 0; i < players.Count; i++)
             {
                 if(players[i].PlayerOrders.Count < 1){
-                    print("Giving order to "+players[i].name);
+                    //print("Giving order to "+players[i].name);
                     return players[i];
                 }
             }
         }
       
-        print("All players have orders.");
+        //print("All players have orders.");
         return null;
     }
 
@@ -72,7 +70,7 @@ public class Orders : MonoBehaviour {
         order.player = player;
         order.hattributes = GenerateRandomHattribute();
         order.OrderCustomer = CustomerObj;
-        order.timelimit = Random.Range(10f, 20f);
+        order.timelimit = Random.Range(20f, 25f);
         order.timer = order.timelimit;
         orders.Add(order);
         uimanager.CreateUIOrder(order);
@@ -81,8 +79,9 @@ public class Orders : MonoBehaviour {
 
     public void ExpireOrder(Order order)
     {
-        print("expire");
+        //print("expire");
         order.OrderCustomer.GetTheFuckOut();
+        order.player.PlayerOrders.Remove(order);
         orders.Remove(order);
 
         //do UI Things
