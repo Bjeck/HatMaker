@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+    [SerializeField] GameObject linePrefab;
+    Transform line;
+
     public string controller;
     public Color color;
 
@@ -71,23 +74,36 @@ public class Player : MonoBehaviour {
     {
         if (objToIntWith == null)
         {
+            if(line != null)
+            {
+                Destroy(line.gameObject);
+            }
             return;
         }
 
+        if(line == null)
+        {
+            line = (Instantiate(linePrefab, transform).transform);
+            line.localScale = Vector3.one;
+            line.position = transform.position;
+        }
 
-        Debug.DrawRay(transform.position, objToIntWith.transform.position);
+        line.LookAt(objToIntWith.transform.position);
+        float dist = Vector3.Distance(transform.position, objToIntWith.transform.position) / 2f;
+        line.localScale = new Vector3(0.2f, 0.2f, dist );
+        line.position = transform.position;
+        line.position += line.forward * dist;
 
-
-
+        
+        //Debug.DrawRay(transform.position, objToIntWith.transform.position-transform.position);
+        
     }
 
     void TryUse()
     {
-        //print("try use " + heldHat);
         if (heldHat != null)
         {
             DropHat();
-
             return;
         }
         else
@@ -113,47 +129,67 @@ public class Player : MonoBehaviour {
         List<GameObject> objects = new List<GameObject>();
 
 
-
-
+        objToIntWith = null;
+        
         for (int i = 0; i < hits.Length; i++)
         {
-            objects.Add(hits[i].transform.gameObject);
+            
+            if(hits[i].transform.gameObject != gameObject || !hits[i].transform.IsChildOf(transform))
+            {
+                objects.Add(hits[i].transform.gameObject);
+            }
         }
+
+        //print(objects.Count);
 
 
         for (int i = 0; i < objects.Count; i++)
         {
-            if (hits[i].collider.CompareTag("Player"))
+            //print(objects[i].name);
+            if (objects[i].CompareTag("Ground"))
             {
-                objToIntWith = hits[i].collider.gameObject;
+                continue;
             }
-            else if (hits[i].collider.CompareTag("Hat"))
+            else if (objects[i].CompareTag("Player") && (hits[i].transform.gameObject != gameObject || !hits[i].transform.IsChildOf(transform)))
             {
-                objToIntWith = hits[i].collider.gameObject;
+                objToIntWith = objects[i];
             }
-            else if (hits[i].collider.CompareTag("Station"))
+            else if (objects[i].CompareTag("Hat"))
             {
-                objToIntWith = hits[i].collider.gameObject;
+                if(heldHat != null)
+                {
+                    if (objects[i] != heldHat.gameObject)
+                    {
+                        objToIntWith = objects[i];
+                    }
+                }
+                else
+                {
+                    objToIntWith = objects[i];
+                }
+            }
+            else if (objects[i].CompareTag("Station"))
+            {
+                objToIntWith = objects[i];
             }
         }
-
     }
 
 
     void Interact()
     {
-        RaycastHit[] hits;
-        hits = Physics.SphereCastAll(transform.position, 4, transform.forward, 3f);
-
-        for (int i = 0; i < hits.Length; i++)
+        if(objToIntWith == null)
         {
-            hits[i].transform.gameObject.SendMessage("OnInteract", this, SendMessageOptions.DontRequireReceiver);
-            if (hits[i].collider.CompareTag("Hat"))
-            {
-                //is a hat. bind.
-                heldHat = hits[i].transform.gameObject.GetComponent<Hat>();
-            }
+            return;
         }
+
+        objToIntWith.SendMessage("OnInteract", this, SendMessageOptions.DontRequireReceiver);
+        if (objToIntWith.CompareTag("Hat"))
+        {
+            //is a hat. bind.
+            heldHat = objToIntWith.GetComponent<Hat>();
+        }
+
     }
 
 

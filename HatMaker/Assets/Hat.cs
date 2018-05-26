@@ -66,6 +66,11 @@ public class Hat : MonoBehaviour {
 
     void OnSpringBreak()
     {
+        if (connectedPlayer != null)
+        {
+            print("remove held hat");
+            connectedPlayer.heldHat = null;
+        }
         connectedPlayer = null;
     }
 

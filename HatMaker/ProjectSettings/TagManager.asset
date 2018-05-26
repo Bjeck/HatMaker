@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Hat
+  - Station
   layers:
   - Default
   - TransparentFX

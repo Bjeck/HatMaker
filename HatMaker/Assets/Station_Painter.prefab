@@ -150,9 +150,10 @@ GameObject:
   - component: {fileID: 33594189156332760}
   - component: {fileID: 65641583357301476}
   - component: {fileID: 23569641118947364}
+  - component: {fileID: 114486139747472092}
   m_Layer: 0
   m_Name: Button
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -184,10 +185,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4628774739355318}
   - component: {fileID: 33300709136945080}
-  - component: {fileID: 65662195208448422}
   - component: {fileID: 23811002260144550}
   - component: {fileID: 54571775391187304}
-  - component: {fileID: 114661482903190900}
   m_Layer: 0
   m_Name: Station_Painter
   m_TagString: Untagged
@@ -789,18 +788,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65662195208448422
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1955433447426406}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.39, y: 1, z: 1.14}
-  m_Center: {x: 2.33, y: 0.98, z: 0}
 --- !u!65 &65675421736053298
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -882,6 +869,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114486139747472092
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1936358978525880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 342f6a4bfce4d6647a17bffa5fa08e4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorStation: {fileID: 114168655896152090}
 --- !u!114 &114626465361218054
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -895,18 +894,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posLimit: 0.5
   direction: {x: 1, y: 0, z: 0}
---- !u!114 &114661482903190900
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1955433447426406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 342f6a4bfce4d6647a17bffa5fa08e4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colorStation: {fileID: 114168655896152090}
 --- !u!114 &114713846053776844
 MonoBehaviour:
   m_ObjectHideFlags: 1

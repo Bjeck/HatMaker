@@ -209,11 +209,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecdcc4fbed77b4d468560d1c998bd4ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  linePrefab: {fileID: 1325274544624206, guid: 641d7b7e22e420949b6c341990761993, type: 2}
   controller: Pad1
   color: {r: 0, g: 0, b: 0, a: 0}
   heldHat: {fileID: 0}
   speed: 1.65
   maxVelocityMagnitude: 30
+  PlayerOrders: []
 --- !u!135 &135818168147379108
 SphereCollider:
   m_ObjectHideFlags: 1
