@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class UIOrder : MonoBehaviour {
 
+    [SerializeField] List<Sprite> hatsprites = new List<Sprite>();
     Dictionary<HatTypeName, Sprite> hattypeSprite = new Dictionary<HatTypeName, Sprite>();
 
     public Image playerBackground;
@@ -16,6 +17,13 @@ public class UIOrder : MonoBehaviour {
 
     float timer;
 
+    private void Awake()
+    {
+        for (int i = 0; i < hatsprites.Count; i++)
+        {
+            hattypeSprite.Add((HatTypeName)System.Enum.Parse(typeof(HatTypeName), hatsprites[i].name), hatsprites[i]);
+        }
+    }
 
     private void Update()
     {
@@ -27,6 +35,7 @@ public class UIOrder : MonoBehaviour {
     public void Setup(Order order)
     {
         this.order = order;
+        print("adding " + order.hattributes.type);
         if (hattypeSprite.ContainsKey(order.hattributes.type))
         {
             image.sprite = hattypeSprite[order.hattributes.type];

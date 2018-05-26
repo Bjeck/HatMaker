@@ -39,6 +39,10 @@ public class Player : MonoBehaviour {
             rigidbody.AddForce(velocity, ForceMode.VelocityChange);
         }
 
+        transform.position = new Vector3(transform.position.x, 1.022739f, transform.position.z); //magic numbers ftw!!
+
+        //rigidbody.velocity = new Vector3(rigidbody.velocity.x, 1, rigidbody.velocity.z);
+        //print(rigidbody.velocity);
 
         if(rigidbody.velocity.magnitude > 0.5f)
         {

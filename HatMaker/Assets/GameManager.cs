@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour {
 
     private void Start()
     {
-        for (int i = 0; i < maxPlayerCount; i++)
+        for (int i = 0; i < playerCount; i++)
         {
             GameObject g = Instantiate(playerPrefab, transform.position, Quaternion.identity);
             Player p = g.GetComponent<Player>();
@@ -27,15 +27,6 @@ public class GameManager : MonoBehaviour {
             playersAtStart.Add(p);
         }
 
-        int playerCountReverse = 4 - playerCount;
-
-        for (int i = playerCountReverse; i >= playerCount; i--)
-        {
-            Player p = playersAtStart[i];
-            playersAtStart.Remove(p);
-            Destroy(p.gameObject);
-
-        }
 
         orders.players = playersAtStart;
         orders.StartGame();

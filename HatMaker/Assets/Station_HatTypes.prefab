@@ -27,7 +27,7 @@ GameObject:
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1100866530581854
@@ -46,7 +46,7 @@ GameObject:
   m_Name: Selector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1124402989612252
@@ -65,7 +65,7 @@ GameObject:
   m_Name: QUE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1398473114824196
@@ -84,7 +84,7 @@ GameObject:
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1403017540755572
@@ -101,7 +101,7 @@ GameObject:
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1513631152657522
@@ -117,7 +117,7 @@ GameObject:
   m_Name: SpawnHere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1591119834861294
@@ -134,7 +134,7 @@ GameObject:
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1862254220852826
@@ -150,7 +150,7 @@ GameObject:
   m_Name: Station_HatTypes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1990225631046060
@@ -167,7 +167,7 @@ GameObject:
   m_Name: HatName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4035786891387160
@@ -191,7 +191,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1862254220852826}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.4, y: 1.1, z: 32.84}
+  m_LocalPosition: {x: -17.8, y: 1.1, z: 25.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4035786891387160}
@@ -530,15 +530,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HatTypes:
   - HatType: 0
-    Prefab: {fileID: 1520112392230720, guid: 029f831111e006541a7760ce799e9424, type: 2}
+    Prefab: {fileID: 1243728979620882, guid: e150f6cfcdddb574da8f8e36929c8e66, type: 2}
   - HatType: 1
-    Prefab: {fileID: 1520112392230720, guid: 029f831111e006541a7760ce799e9424, type: 2}
+    Prefab: {fileID: 1115999922662220, guid: ca9f4a7144f0ef44381527a7b77c813f, type: 2}
   - HatType: 2
-    Prefab: {fileID: 1520112392230720, guid: 029f831111e006541a7760ce799e9424, type: 2}
+    Prefab: {fileID: 1835502484655172, guid: 85169e6318bbf374abba71f66b43ab3d, type: 2}
   - HatType: 3
-    Prefab: {fileID: 1520112392230720, guid: 029f831111e006541a7760ce799e9424, type: 2}
-  - HatType: 4
-    Prefab: {fileID: 1520112392230720, guid: 029f831111e006541a7760ce799e9424, type: 2}
+    Prefab: {fileID: 1002887717677362, guid: 3e8e6a712a1d2ec4196c657b6a80db4c, type: 2}
   PipelineTimer: 0
   WaitTime: 3
   HatPipeline: []

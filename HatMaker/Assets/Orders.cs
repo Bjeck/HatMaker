@@ -18,6 +18,8 @@ public class Orders : MonoBehaviour {
     public UIManager uimanager;
     public List<Order> orders = new List<Order>();
 
+
+
     //order with hattributes and player
     public float sizeThreshold = 1f;
 
@@ -55,7 +57,7 @@ public class Orders : MonoBehaviour {
         Order order = new Order();
         order.player = player;
         order.hattributes = GenerateRandomHattribute();
-        order.timelimit = Random.Range(10f, 10f);
+        order.timelimit = Random.Range(30f, 60f);
         order.timer = order.timelimit;
         orders.Add(order);
         uimanager.CreateUIOrder(order);
@@ -84,7 +86,7 @@ public class Orders : MonoBehaviour {
 
         hattributes.color = Random.ColorHSV();
 
-        int r = Random.Range(0, 6); //amount of hat types
+        int r = Random.Range(0, 4); //amount of hat types
         hattributes.type = (HatTypeName)r;
 
         return hattributes;
