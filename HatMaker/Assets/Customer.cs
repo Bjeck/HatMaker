@@ -119,6 +119,8 @@ public class Customer : MonoBehaviour {
         if(collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<Player>().AddPoints(-20);
+            CL.HitPlayer(this);
+            Destroy(gameObject);
         }
     }
 

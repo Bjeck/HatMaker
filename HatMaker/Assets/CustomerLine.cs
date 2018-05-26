@@ -42,6 +42,8 @@ public class CustomerLine : MonoBehaviour {
 
     public List<HandoverPlace> handoverplaces = new List<HandoverPlace>();
 
+    public List<Customer> customersAtEnd = new List<Customer>();
+
     public CustomerPositionClass AskForPosition(GameObject customer){
 
         CustomerPositionClass AssignedPlace = null;
@@ -89,7 +91,11 @@ public class CustomerLine : MonoBehaviour {
             GameManager GM = GameObject.Find("Managers").GetComponent<GameManager>();
             int PlayerNum = i % GameManager.playerCount;
 
-            HandlePosition[i].OccupiedBy.GetComponent<Customer>().GetHim( GM.playersAtStart[PlayerNum].gameObject);
+            if(HandlePosition[i].OccupiedBy != null)
+            {
+                customersAtEnd.Add(HandlePosition[i].OccupiedBy.GetComponent<Customer>());
+                HandlePosition[i].OccupiedBy.GetComponent<Customer>().GetHim(GM.playersAtStart[PlayerNum].gameObject);
+            }
 
         }
 
@@ -98,6 +104,7 @@ public class CustomerLine : MonoBehaviour {
             GameManager GM = GameObject.Find("Managers").GetComponent<GameManager>();
             int PlayerNum = i % GameManager.playerCount;
 
+            customersAtEnd.Add(WaitingPosition[i].OccupiedBy.GetComponent<Customer>());
             WaitingPosition[i].OccupiedBy.GetComponent<Customer>().GetHim(GM.playersAtStart[PlayerNum].gameObject);
 
         }
@@ -206,6 +213,16 @@ public class CustomerLine : MonoBehaviour {
             }
         }
         return null;
+    }
+
+    public void HitPlayer(Customer customer)
+    {
+        customersAtEnd.Remove(customer);
+
+        if(customersAtEnd.Count <= 0)
+        {
+            //END GAME
+        }
     }
 
 }

@@ -74,7 +74,7 @@ public class Station_Scaler : MonoBehaviour {
                 NS = MinScale;
             }
 
-            Vector3 NS2 = new Vector3(NS, NS, NS);
+            Vector3 NS2 = new Vector3(NS, NS, ConnectedObject.transform.localScale.z);
             ConnectedObject.transform.localScale = NS2;
 
             if (hInput.GetButtonUp(P.controller + "Use"))
