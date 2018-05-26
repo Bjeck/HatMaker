@@ -2216,8 +2216,8 @@ MonoBehaviour:
   CustomerPrefab: {fileID: 1419644336378198, guid: 0fadd2574c04548a28ce932f206416c3,
     type: 2}
   StartingPosition: {fileID: 1615254591479832}
-  SpawningRate: 1
-  SpawningVariability: 1
+  SpawningRate: 10
+  SpawningVariability: 10
   Timer: 0
   ParticlesDestroyBarrier: {fileID: 0}
 --- !u!114 &114249103713834828
