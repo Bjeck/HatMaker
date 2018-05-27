@@ -119,7 +119,7 @@ public class Customer : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Player")
         {
-            print("hit player!");
+            //print("hit player!");
             collision.gameObject.GetComponent<Player>().AddPoints(-20);
             CL.gamemanager.ui.SpawnNumbers(transform.position + Vector3.up, -20);
             CL.HitPlayer(this);
