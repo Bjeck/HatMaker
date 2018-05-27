@@ -107,7 +107,7 @@ public class Orders : MonoBehaviour {
     {
         Hattributes hattributes = new Hattributes();
 
-        hattributes.size = Vector3.one * Random.Range(1.5f, 5f);
+        hattributes.size = Vector3.one * Random.Range(0.5f, 2f);
 
         hattributes.color = Random.ColorHSV();
 
@@ -121,11 +121,18 @@ public class Orders : MonoBehaviour {
         return hattributes;
     }
     
+    Hat SetHattributes(Hat hat)
+    {
+        hat.hattributes.size = hat.transform.localScale;
+        hat.hattributes.color = hat.GetComponent<Renderer>().material.color;
+        //accessories and type is set elsewhere
+        return hat;
+    }
 
     public void EvaluateOrder(Player player, Hat hat)
     {
         Order thisOrder = orders.Find(x => x.player == player);
-
+        hat = SetHattributes(hat);
         int totalScore = 0;
 
         if (IsTypeCorrect(thisOrder, hat))
@@ -144,9 +151,11 @@ public class Orders : MonoBehaviour {
             totalScore = 0;
         }
 
-        //print("Evaluated hat " + hat + " with points " + totalScore+ "   " + IsTypeCorrect(thisOrder, hat) +  "  "  + HasAccessory(thisOrder,hat) + "  "  + SizeEvaluation(thisOrder, hat) + "  " + ColorEvaluation(thisOrder, hat));
+        print("Evaluated hat " + hat + " with points " + totalScore+ "   " + IsTypeCorrect(thisOrder, hat) +  "  "  + HasAccessory(thisOrder,hat) + "  "  + SizeEvaluation(thisOrder, hat) + "  " + ColorEvaluation(thisOrder, hat));
 
         player.AddPoints(totalScore);
+
+        uimanager.SpawnNumbers(thisOrder.OrderCustomer.transform.position + Vector3.up * 3,totalScore);
 
         player.DropHat();
 

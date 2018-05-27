@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour {
 
     public GameObject uiOrderObject;
+    public GameObject pointHoverObj;
 
     public RectTransform orderListParent;
 
@@ -20,11 +21,7 @@ public class UIManager : MonoBehaviour {
         gamemanager = GetComponent<GameManager>();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
+    
     public void CreateUIOrder(Order order)
     {
         GameObject g = Instantiate(uiOrderObject);
@@ -52,5 +49,11 @@ public class UIManager : MonoBehaviour {
         scoreboard.UpdateScores();
     }
 
+    public void SpawnNumbers(Vector3 pos, int nr)
+    {
+        GameObject g = Instantiate(pointHoverObj, pos, Quaternion.identity);
+
+        g.GetComponentInChildren<PointHover>().ShowNumber(nr);
+    }
 
 }

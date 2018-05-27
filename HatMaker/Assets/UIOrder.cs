@@ -54,7 +54,7 @@ public class UIOrder : MonoBehaviour {
         }
 
 
-        scale.fillAmount = Map(order.hattributes.size.x, 1.5f, 5f, 0f, 1f);
+        scale.fillAmount = Map(order.hattributes.size.x, 0.5f, 2f, 0f, 1f);
         color.color = order.hattributes.color;
         playerBackground.color = order.player.color;
 

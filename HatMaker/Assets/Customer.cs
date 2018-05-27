@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class Customer : MonoBehaviour {
 
+    [SerializeField] GameObject deathExplosion;
     private NavMeshAgent NMA;
     public CustomerLine CL;
     public Transform TargetTransform;
@@ -120,7 +121,12 @@ public class Customer : MonoBehaviour {
         {
             print("hit player!");
             collision.gameObject.GetComponent<Player>().AddPoints(-20);
+            CL.gamemanager.ui.SpawnNumbers(transform.position + Vector3.up, -20);
             CL.HitPlayer(this);
+            if(deathExplosion != null)
+            {
+                Instantiate(deathExplosion, transform.position, Quaternion.identity);
+            }
             Destroy(gameObject);
         }
     }

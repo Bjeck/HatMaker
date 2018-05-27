@@ -376,9 +376,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ConnectedObject: {fileID: 0}
-  MaxScale: 5
+  MaxScale: 2
   MinScale: 0.5
-  DistanceMultiplier: 0.4
+  DistanceMultiplier: 0.1
   Cooldown: 5
   SnapPoint: {fileID: 0}
   Handle: {fileID: 1657376211924190}

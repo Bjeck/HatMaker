@@ -32,7 +32,9 @@ public class CustomerPositionClass
 
 public class CustomerLine : MonoBehaviour {
 
-    GameManager gamemanager;
+    public GameManager gamemanager;
+    public bool shouldIncreaseSpawnRate = true;
+
 
     [Header("Customer Positions")]
     public bool Overrun = false;
@@ -173,6 +175,17 @@ public class CustomerLine : MonoBehaviour {
         for (int i = 0; i < num ; i++){
             GameObject newCustomer = (Instantiate(CustomerPrefab, StartingPosition.transform.position, Quaternion.identity)) as GameObject;
             newCustomer.GetComponent<Customer>().CL = this;
+        }
+
+        SpawningRate -= 0.6f;
+        if(SpawningRate < 0)
+        {
+            SpawningRate = 0;
+        }
+        SpawningVariability -= 0.4f;
+        if(SpawningVariability < 0)
+        {
+            SpawningVariability = 0;
         }
     }
 

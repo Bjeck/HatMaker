@@ -28,7 +28,9 @@ public class Player : MonoBehaviour
 
     public string controller;
     public Color color;
-
+    
+    GameManager gm;
+    
     public Rigidbody rigidbody;
 
     Vector3 velocity;
@@ -50,6 +52,7 @@ public class Player : MonoBehaviour
 
 	// Use this for initialization
 	void Start () {
+        gm = GameObject.Find("Managers").GetComponent<GameManager>();
         rigidbody = GetComponent<Rigidbody>();
         StartCoroutine(Walking());
 
@@ -60,6 +63,7 @@ public class Player : MonoBehaviour
     {
         color = col;
         GetComponent<Renderer>().material.color = col;
+        PlayerSprites.SpriteComponent.color = col;
     }
 	
 	// Update is called once per frame
@@ -67,14 +71,9 @@ public class Player : MonoBehaviour
         
         velocity = new Vector3(hInput.GetAxis(controller + "Horizontal"), 0 , -hInput.GetAxis(controller + "Vertical"));
         velocity *= speed;
+        
 
-        if(rigidbody.velocity.magnitude < maxVelocityMagnitude)
-        {
-           
-            rigidbody.AddForce(velocity*2, ForceMode.VelocityChange);
-        }
-
-        rigidbody.velocity = new Vector3(rigidbody.velocity.x, 0f, rigidbody.velocity.z);
+        rigidbody.velocity = velocity;// *2, ForceMode.VelocityChange);
 
         float clampedY = 3.2f;
         transform.position = new Vector3(transform.position.x, clampedY, transform.position.z); //magic numbers ftw!!
@@ -279,6 +278,7 @@ public class Player : MonoBehaviour
     public void AddPoints(int pointsToAdd)
     {
         Points += pointsToAdd;
+        gm.ui.UpdateScore();
     }
 
 

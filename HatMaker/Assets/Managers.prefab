@@ -242,6 +242,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiOrderObject: {fileID: 1000914367066156, guid: d9f2439d0d0842742bee23f4474c27f0,
     type: 2}
+  pointHoverObj: {fileID: 1920319509195652, guid: bb61cf1d1786411419d9d1bdbebd1a2a,
+    type: 2}
   orderListParent: {fileID: 224094591249193650}
   scoreboard: {fileID: 0}
 --- !u!114 &114311174034501594

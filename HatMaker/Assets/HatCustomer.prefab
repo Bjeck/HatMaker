@@ -108,6 +108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8947fceeed7674bd2af2e73df5bb7c74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathExplosion: {fileID: 1315910245909114, guid: b612ebf63389fa042a502ce641329c99,
+    type: 2}
   CL: {fileID: 0}
   TargetTransform: {fileID: 0}
   CPC:
@@ -116,6 +118,7 @@ MonoBehaviour:
     hasSeated: 0
   isMoving: 0
   TargetRotation: {x: 0, y: 0, z: 0, w: 0}
+  onTheHunt: 0
 --- !u!195 &195611644213413332
 NavMeshAgent:
   m_ObjectHideFlags: 1

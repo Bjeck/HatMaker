@@ -98,7 +98,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1239880400174012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.5, z: 0}
+  m_LocalPosition: {x: 0, y: 3.2, z: 0}
   m_LocalScale: {x: 2.045478, y: 2.045478, z: 2.045478}
   m_Children:
   - {fileID: 4407324981362024}
@@ -348,7 +348,7 @@ MonoBehaviour:
   color: {r: 0, g: 0, b: 0, a: 0}
   rigidbody: {fileID: 0}
   heldHat: {fileID: 0}
-  speed: 4.59
+  speed: 28.07
   maxVelocityMagnitude: 30
   PlayerOrders: []
   Footstep: {fileID: 82361004044510014}
@@ -374,9 +374,9 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: 20330419eb97d8e42a5d36c5d3c7c40d, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.58
-  m_Height: 5.13
-  m_Direction: 2
+  m_Radius: 1.23
+  m_Height: 3.2
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &212442590134078994
 SpriteRenderer:
