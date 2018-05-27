@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour {
 
     public void EndGame()
     {
+        customerLine.AngryCrowd.Stop();
         Victory.Play();
         Camera.main.gameObject.GetComponent<CameraControl>().MoveToScoreBoard();
 
