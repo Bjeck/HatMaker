@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour {
             playersAtStart.Add(p);
         }
 
+        ui.scoreboard.Setup();
 
         orders.players = playersAtStart;
         orders.StartGame();

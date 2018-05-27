@@ -13,7 +13,7 @@ public class Scoreboard : MonoBehaviour {
 	void Start () {
         gamemanager = GameObject.Find("Managers").GetComponent<GameManager>();
 
-        Setup();
+        
 
 
     }
