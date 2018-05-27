@@ -8,6 +8,7 @@ public class HatColorStationController : MonoBehaviour
     [SerializeField] HatColorStation colorStation;
 
     private Collider collider;
+    public AudioSource UseSound;
 
     private void Start()
     {
@@ -18,6 +19,7 @@ public class HatColorStationController : MonoBehaviour
     public void OnInteract(object payload)
     {
         //print("fun");
+        UseSound.Play();
         colorStation.OnInteract();
     }
 }
