@@ -43,12 +43,17 @@ public class Player : MonoBehaviour
 
     Quaternion rotation;
 
+    public AudioSource Footstep;
+    public AudioSource Pickup;
+
     public int Points { get; private set; }
 
 	// Use this for initialization
 	void Start () {
         rigidbody = GetComponent<Rigidbody>();
         StartCoroutine(Walking());
+
+        Footstep.Play();
 	}
 
     public void Setup(Color col)
@@ -150,6 +155,11 @@ public class Player : MonoBehaviour
     IEnumerator WalkingRight;
     float Speed = 0.1f;
 
+    public void PlayFootstepSound(){
+        Footstep.pitch = 1 + Random.Range(-0.1f, 0.1f);
+        Footstep.Play();
+    }
+
     IEnumerator WalkingLeftRoutine(){
         while(true){
             PlayerSprites.SpriteComponent.sprite = PlayerSprites.Left;
@@ -157,9 +167,11 @@ public class Player : MonoBehaviour
             PlayerSprites.SpriteComponent.sprite = PlayerSprites.Walk_Left_01;
             yield return new WaitForSeconds(Speed);
             PlayerSprites.SpriteComponent.sprite = PlayerSprites.Left;
+            PlayFootstepSound();
             yield return new WaitForSeconds(Speed);
             PlayerSprites.SpriteComponent.sprite = PlayerSprites.Walk_Left_02;
             yield return new WaitForSeconds(Speed);
+            PlayFootstepSound();
         }
     }
 
@@ -170,9 +182,11 @@ public class Player : MonoBehaviour
             PlayerSprites.SpriteComponent.sprite = PlayerSprites.Walk_Right_01;
             yield return new WaitForSeconds(Speed);
             PlayerSprites.SpriteComponent.sprite = PlayerSprites.Right;
+            PlayFootstepSound();
             yield return new WaitForSeconds(Speed);
             PlayerSprites.SpriteComponent.sprite = PlayerSprites.Walk_Right_02;
             yield return new WaitForSeconds(Speed);
+            PlayFootstepSound();
         }
     }
 
@@ -284,7 +298,7 @@ public class Player : MonoBehaviour
 
     public void DropHat()
     {
-        
+        Pickup.Play();
         heldHat.RemoveHatFromPlayer();
         heldHat = null;
     }
@@ -351,6 +365,7 @@ public class Player : MonoBehaviour
             return;
         }
 
+        Pickup.Play();
         objToIntWith.SendMessage("OnInteract", this, SendMessageOptions.DontRequireReceiver);
         if (objToIntWith.CompareTag("Hat"))
         {
