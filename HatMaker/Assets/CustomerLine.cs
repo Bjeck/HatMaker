@@ -180,15 +180,15 @@ public class CustomerLine : MonoBehaviour {
             newCustomer.GetComponent<Customer>().CL = this;
         }
 
-        SpawningRate -= 0.6f;
-        if(SpawningRate < 0)
+        SpawningRate -= 0.5f;
+        if(SpawningRate < 1)
         {
-            SpawningRate = 0;
+            SpawningRate = 1;
         }
-        SpawningVariability -= 0.4f;
-        if(SpawningVariability < 0)
+        SpawningVariability -= 0.5f;
+        if(SpawningVariability < 1)
         {
-            SpawningVariability = 0;
+            SpawningVariability = 1;
         }
     }
 
@@ -205,6 +205,12 @@ public class CustomerLine : MonoBehaviour {
 
     public void HandoverHatToCustomer(HandoverPlace place, Hat hat)
     {
+        print((HandlePosition.Count + " " + handoverplaces.IndexOf(place)));
+        if(HandlePosition.Count <= handoverplaces.IndexOf(place) || handoverplaces.IndexOf(place) < 0)
+        {
+            return;
+        }
+
         if(HandlePosition[handoverplaces.IndexOf(place)].OccupiedBy == null)
         {
             return; //no one there.
