@@ -39,23 +39,23 @@ public class Hat : MonoBehaviour {
         if(connectedPlayer != null)
         {
             float dist = Vector3.Distance(connectedPlayer.transform.position, transform.position);
-            //if(dist > 5f)
-            //{
-                transform.position = Vector3.Lerp(transform.position, connectedPlayer.transform.position + connectedPlayer.transform.forward * 5, Time.deltaTime * 3.5f);
-
-                if (dist > col.radius)
-                {
-                    transform.position = col.ClosestPoint(transform.position);
-                }
-            //}
-
+            if(connectedPlayer.rigidbody.velocity.magnitude > 5f){
+                transform.position = Vector3.Lerp(transform.position, connectedPlayer.transform.position + connectedPlayer.rigidbody.velocity * 5, Time.deltaTime * 3.5f);
+            }
+            if (dist > col.radius)
+            {
+                transform.position = col.ClosestPoint(transform.position);
+            }
         }
+        transform.position = new Vector3(transform.position.x, 1.7f, transform.position.z);
+
         rot.eulerAngles = new Vector3(90, 0, 0);
         transform.rotation = rot;
     }
     
     public void RemoveHatFromPlayer()
     {
+        this.GetComponent<Collider>().isTrigger = false; 
         RB.velocity = Vector3.zero;
         RB.angularVelocity = Vector3.zero;
 
@@ -78,6 +78,7 @@ public class Hat : MonoBehaviour {
     {
         if(connectedPlayer == null){
             connectedPlayer = (Player)player;
+            this.GetComponent<Collider>().isTrigger = true; 
 
             if (connectedPlayer != null)
             {

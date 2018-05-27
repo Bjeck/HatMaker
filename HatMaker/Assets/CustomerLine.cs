@@ -197,6 +197,7 @@ public class CustomerLine : MonoBehaviour {
         hat.transform.SetParent(customer);
         hat.transform.rotation = Quaternion.identity;
         hat.transform.position = customer.transform.position + Vector3.up * 2f;
+        hat.GetComponent<Collider>().enabled = false;
 
         gamemanager.orders.ExpireOrder(customer.gameObject.GetComponent<Customer>());
 

@@ -929,6 +929,11 @@ Prefab:
       propertyPath: SpawningVariability
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 23296602168309368, guid: 48e621ffb999548a4af92e34ee39ba29,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 135feb2aa723a4615bae19b3a8b03be7, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 48e621ffb999548a4af92e34ee39ba29, type: 2}
   m_IsPrefabParent: 0
