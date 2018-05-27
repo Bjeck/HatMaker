@@ -18,7 +18,7 @@ public class Accessory : MonoBehaviour {
     {
         if(collision.gameObject.name != "Base" && !collision.gameObject.CompareTag("Station") && collision.gameObject.name != "Ground") //this is best code wow
         {
-            print("Hit " + collision.gameObject.name);
+            //print("Hit " + collision.gameObject.name);
             transform.SetParent(collision.transform);
             Destroy(collider);
             Destroy(rigid);

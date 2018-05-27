@@ -19,6 +19,10 @@ public class GameManager : MonoBehaviour {
     public Orders orders;
     public CustomerLine customerLine;
 
+    [Header("#### Order Timing")]
+    public float OrderTime = 60f;
+    public float OrderVariation = 30f;
+
     private void Start()
     {
         ui = GetComponent<UIManager>();

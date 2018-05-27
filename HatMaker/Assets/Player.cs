@@ -28,10 +28,10 @@ public class Player : MonoBehaviour
 
     public string controller;
     public Color color;
-
+    
     GameManager gm;
-
-    Rigidbody rigidbody;
+    
+    public Rigidbody rigidbody;
 
     Vector3 velocity;
     public Hat heldHat;
@@ -63,18 +63,19 @@ public class Player : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-
-
+        
         velocity = new Vector3(hInput.GetAxis(controller + "Horizontal"), 0 , -hInput.GetAxis(controller + "Vertical"));
         velocity *= speed;
 
         if(rigidbody.velocity.magnitude < maxVelocityMagnitude)
         {
            
-            rigidbody.AddForce(velocity, ForceMode.VelocityChange);
+            rigidbody.AddForce(velocity*2, ForceMode.VelocityChange);
         }
 
-        float clampedY = Mathf.Clamp(transform.position.y, 2f, 8f);
+        rigidbody.velocity = new Vector3(rigidbody.velocity.x, 0f, rigidbody.velocity.z);
+
+        float clampedY = 3.2f;
         transform.position = new Vector3(transform.position.x, clampedY, transform.position.z); //magic numbers ftw!!
 
         if (hInput.GetButtonDown(controller + "Use"))

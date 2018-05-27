@@ -18,6 +18,7 @@ public class Orders : MonoBehaviour {
     public List<Player> players = new List<Player>();
     public UIManager uimanager;
     public List<Order> orders = new List<Order>();
+    public GameManager GM;
 
     //order with hattributes and player
     public float sizeThreshold = 1f;
@@ -56,7 +57,7 @@ public class Orders : MonoBehaviour {
 
     public void StartGame()
     {
-       
+        GM = GetComponentInParent<GameManager>();
         //foreach(Player p in players)
         //{
         //    GiveNewOrder(p);
@@ -70,7 +71,7 @@ public class Orders : MonoBehaviour {
         order.player = player;
         order.hattributes = GenerateRandomHattribute();
         order.OrderCustomer = CustomerObj;
-        order.timelimit = Random.Range(30f, 40f);
+        order.timelimit = Random.Range(GM.OrderTime, GM.OrderTime+GM.OrderVariation);
         order.timer = order.timelimit;
         orders.Add(order);
         uimanager.CreateUIOrder(order);
@@ -143,7 +144,7 @@ public class Orders : MonoBehaviour {
             totalScore = 0;
         }
 
-        print("Evaluated hat " + hat + " with points " + totalScore+ "   " + IsTypeCorrect(thisOrder, hat) +  "  "  + HasAccessory(thisOrder,hat) + "  "  + SizeEvaluation(thisOrder, hat) + "  " + ColorEvaluation(thisOrder, hat));
+        //print("Evaluated hat " + hat + " with points " + totalScore+ "   " + IsTypeCorrect(thisOrder, hat) +  "  "  + HasAccessory(thisOrder,hat) + "  "  + SizeEvaluation(thisOrder, hat) + "  " + ColorEvaluation(thisOrder, hat));
 
         player.AddPoints(totalScore);
 
