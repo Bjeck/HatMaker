@@ -202,6 +202,12 @@ public class CustomerLine : MonoBehaviour {
 
     public void HandoverHatToCustomer(HandoverPlace place, Hat hat)
     {
+        print((HandlePosition.Count + " " + handoverplaces.IndexOf(place)));
+        if(HandlePosition.Count <= handoverplaces.IndexOf(place) || handoverplaces.IndexOf(place) < 0)
+        {
+            return;
+        }
+
         if(HandlePosition[handoverplaces.IndexOf(place)].OccupiedBy == null)
         {
             return; //no one there.
