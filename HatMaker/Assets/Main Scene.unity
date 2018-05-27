@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43975636, g: 0.4881822, b: 0.56839854, a: 1}
+  m_IndirectSpecularColor: {r: 0.43975592, g: 0.48818153, b: 0.5683975, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -941,6 +941,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 48e621ffb999548a4af92e34ee39ba29, type: 2}
   m_IsPrefabParent: 0
+--- !u!82 &901879745 stripped
+AudioSource:
+  m_PrefabParentObject: {fileID: 82046557750863196, guid: 48e621ffb999548a4af92e34ee39ba29,
+    type: 2}
+  m_PrefabInternal: {fileID: 901879744}
 --- !u!1 &980751011
 GameObject:
   m_ObjectHideFlags: 0
@@ -1578,6 +1583,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114165231172124718, guid: ef2015497c0574c49b3260155e819a19,
+        type: 2}
+      propertyPath: ClickSound
+      value: 
+      objectReference: {fileID: 901879745}
+    - target: {fileID: 114847484584446940, guid: ef2015497c0574c49b3260155e819a19,
+        type: 2}
+      propertyPath: ClickSound
+      value: 
+      objectReference: {fileID: 901879745}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ef2015497c0574c49b3260155e819a19, type: 2}
   m_IsPrefabParent: 0

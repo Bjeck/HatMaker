@@ -151,7 +151,7 @@ public class Orders : MonoBehaviour {
             totalScore = 0;
         }
 
-        print("Evaluated hat " + hat + " with points " + totalScore+ "   " + IsTypeCorrect(thisOrder, hat) +  "  "  + HasAccessory(thisOrder,hat) + "  "  + SizeEvaluation(thisOrder, hat) + "  " + ColorEvaluation(thisOrder, hat));
+        //print("Evaluated hat " + hat + " with points " + totalScore+ "   " + IsTypeCorrect(thisOrder, hat) +  "  "  + HasAccessory(thisOrder,hat) + "  "  + SizeEvaluation(thisOrder, hat) + "  " + ColorEvaluation(thisOrder, hat));
 
         player.AddPoints(totalScore);
 

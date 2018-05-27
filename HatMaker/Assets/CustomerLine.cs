@@ -34,7 +34,8 @@ public class CustomerLine : MonoBehaviour {
 
     public GameManager gamemanager;
     public bool shouldIncreaseSpawnRate = true;
-
+    public AudioSource AngryCrowd;
+    public AudioSource BreakBarrier;
 
     [Header("Customer Positions")]
     public bool Overrun = false;
@@ -81,6 +82,8 @@ public class CustomerLine : MonoBehaviour {
 
     void EndCondition()
     {
+        BreakBarrier.Play();
+        AngryCrowd.Play();
         Overrun = true;
         GetComponent<Collider>().enabled = false;
         GetComponent<MeshRenderer>().enabled = false;

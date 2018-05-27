@@ -1467,6 +1467,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  ClickSound: {fileID: 0}
 --- !u!114 &114186414556869048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1633,6 +1634,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  ClickSound: {fileID: 0}
 --- !u!135 &135651659772791728
 SphereCollider:
   m_ObjectHideFlags: 1
