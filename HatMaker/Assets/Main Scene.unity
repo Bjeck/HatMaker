@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43975592, g: 0.48818153, b: 0.5683975, a: 1}
+  m_IndirectSpecularColor: {r: 0.43975636, g: 0.4881822, b: 0.56839854, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1118,11 +1118,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 224613254521758304, guid: 075cfc4b94e29b84ba1704dfb996fee9,
-        type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4359603037790936, guid: 075cfc4b94e29b84ba1704dfb996fee9, type: 2}
       propertyPath: m_LocalPosition.x
       value: 3.3904402
@@ -1155,29 +1150,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 1644449818842566, guid: 075cfc4b94e29b84ba1704dfb996fee9, type: 2}
-      propertyPath: m_Name
-      value: Managers
-      objectReference: {fileID: 0}
-    - target: {fileID: 114069423542804538, guid: 075cfc4b94e29b84ba1704dfb996fee9,
-        type: 2}
-      propertyPath: playerCount
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114069423542804538, guid: 075cfc4b94e29b84ba1704dfb996fee9,
-        type: 2}
-      propertyPath: customerLine
-      value: 
-      objectReference: {fileID: 1686849416}
-    - target: {fileID: 1988030938863124, guid: 075cfc4b94e29b84ba1704dfb996fee9, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 114187771363902504, guid: 075cfc4b94e29b84ba1704dfb996fee9,
         type: 2}
       propertyPath: scoreboard
       value: 
       objectReference: {fileID: 980751017}
+    - target: {fileID: 114069423542804538, guid: 075cfc4b94e29b84ba1704dfb996fee9,
+        type: 2}
+      propertyPath: customerLine
+      value: 
+      objectReference: {fileID: 1686849416}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 075cfc4b94e29b84ba1704dfb996fee9, type: 2}
   m_IsPrefabParent: 0

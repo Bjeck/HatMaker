@@ -147,6 +147,8 @@ public class Orders : MonoBehaviour {
 
         player.AddPoints(totalScore);
 
+        uimanager.SpawnNumbers(thisOrder.OrderCustomer.transform.position + Vector3.up * 3,totalScore);
+
         player.DropHat();
 
         //Destroy(hat.gameObject);

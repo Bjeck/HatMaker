@@ -94,7 +94,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4028279462137378
 Transform:
   m_ObjectHideFlags: 1
@@ -141,8 +141,10 @@ MonoBehaviour:
   - {r: 1, g: 0.97241366, b: 0, a: 0.978}
   playerPrefab: {fileID: 1239880400174012, guid: 40de4aa1238a4ee4da192cca8ca1743b,
     type: 2}
+  ui: {fileID: 0}
   playersAtStart: []
   orders: {fileID: 114667557834314482}
+  customerLine: {fileID: 0}
 --- !u!114 &114187771363902504
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -156,7 +158,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiOrderObject: {fileID: 1000914367066156, guid: d9f2439d0d0842742bee23f4474c27f0,
     type: 2}
+  pointHoverObj: {fileID: 1920319509195652, guid: bb61cf1d1786411419d9d1bdbebd1a2a,
+    type: 2}
   orderListParent: {fileID: 224094591249193650}
+  scoreboard: {fileID: 0}
 --- !u!114 &114311174034501594
 MonoBehaviour:
   m_ObjectHideFlags: 1
