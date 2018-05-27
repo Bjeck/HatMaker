@@ -70,7 +70,7 @@ public class Station_Scaler : MonoBehaviour {
             {
                 NS = MaxScale;
             }
-            if(NS < 0f){
+            if(NS < MinScale){
                 NS = MinScale;
             }
 

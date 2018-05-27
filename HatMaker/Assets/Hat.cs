@@ -10,7 +10,7 @@ public enum HatTypeName
 
 public enum HatAccessory
 {
-    None, Feather, Sword, Glasses, Eyes, Flower, Gear 
+    Feather, Sword, Glasses, Eyes, Flower, Gear 
 }
 
 [System.Serializable]
