@@ -177,15 +177,15 @@ public class CustomerLine : MonoBehaviour {
             newCustomer.GetComponent<Customer>().CL = this;
         }
 
-        SpawningRate -= 0.6f;
-        if(SpawningRate < 0)
+        SpawningRate -= 0.5f;
+        if(SpawningRate < 1)
         {
-            SpawningRate = 0;
+            SpawningRate = 1;
         }
-        SpawningVariability -= 0.4f;
-        if(SpawningVariability < 0)
+        SpawningVariability -= 0.5f;
+        if(SpawningVariability < 1)
         {
-            SpawningVariability = 0;
+            SpawningVariability = 1;
         }
     }
 
