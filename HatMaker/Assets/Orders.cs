@@ -189,7 +189,8 @@ public class Orders : MonoBehaviour {
 
     int SizeEvaluation(Order order, Hat hat)
     {
-        return (int)Vector3.Distance(order.hattributes.size, hat.hattributes.size);
+        print((int)Vector3.Distance(order.hattributes.size, hat.hattributes.size));
+        return (int)(Vector3.Distance(order.hattributes.size, hat.hattributes.size) * 25f);
     }
 
     int ColorEvaluation(Order order, Hat hat)
@@ -203,7 +204,8 @@ public class Orders : MonoBehaviour {
 
         float totaldiff = rDif + gDif + bDif;
 
-        return (int)totaldiff;
+        print((int)totaldiff);
+        return (int)(totaldiff * 25f);
     }
 
 

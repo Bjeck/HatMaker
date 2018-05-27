@@ -153,7 +153,12 @@ public class CustomerLine : MonoBehaviour {
 
     void Start(){
         gamemanager = GameObject.Find("Managers").GetComponent<GameManager>();
+    }
+
+    public void StartSpawning()
+    {
         StartCoroutine(CustomerSpawner());
+
     }
 
     public IEnumerator CustomerSpawner()
@@ -205,7 +210,6 @@ public class CustomerLine : MonoBehaviour {
 
     public void HandoverHatToCustomer(HandoverPlace place, Hat hat)
     {
-        print((HandlePosition.Count + " " + handoverplaces.IndexOf(place)));
         if(HandlePosition.Count <= handoverplaces.IndexOf(place) || handoverplaces.IndexOf(place) < 0)
         {
             return;

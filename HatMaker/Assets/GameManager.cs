@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour {
         }
 
         ui.scoreboard.Setup();
+        customerLine.StartSpawning();
 
         orders.players = playersAtStart;
         orders.StartGame();
