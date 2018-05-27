@@ -44,7 +44,7 @@ public class HatColorStation : MonoBehaviour
 
     private IEnumerator Spray()
     {
-        print("start coroutine");
+        //print("start coroutine");
         float t = 0f;
        // while(t < SPRAY_TIME)
        // {
