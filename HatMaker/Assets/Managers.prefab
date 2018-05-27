@@ -54,6 +54,7 @@ GameObject:
   - component: {fileID: 4359603037790936}
   - component: {fileID: 114069423542804538}
   - component: {fileID: 114187771363902504}
+  - component: {fileID: 82832237751993870}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -123,6 +124,86 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &82832237751993870
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1644449818842566}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 872a8465c8f1443f4a50362a6c30c75c, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114069423542804538
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -145,6 +226,9 @@ MonoBehaviour:
   playersAtStart: []
   orders: {fileID: 114667557834314482}
   customerLine: {fileID: 0}
+  OrderTime: 60
+  OrderVariation: 30
+  Victory: {fileID: 0}
 --- !u!114 &114187771363902504
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -240,6 +324,7 @@ MonoBehaviour:
   players: []
   uimanager: {fileID: 114187771363902504}
   orders: []
+  GM: {fileID: 0}
   sizeThreshold: 1
 --- !u!114 &114857550495673316
 MonoBehaviour:

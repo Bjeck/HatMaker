@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour {
     [Header("#### Order Timing")]
     public float OrderTime = 60f;
     public float OrderVariation = 30f;
+    public AudioSource Victory;
 
     private void Start()
     {
@@ -45,7 +46,9 @@ public class GameManager : MonoBehaviour {
 
     public void EndGame()
     {
+        Victory.Play();
         Camera.main.gameObject.GetComponent<CameraControl>().MoveToScoreBoard();
+
     }
 
 
